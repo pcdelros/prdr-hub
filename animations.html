@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Animation Examples + Prompts | PRDR Command Hub</title>
+  <title>Animation Prompts | PRDR Command Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,43 +22,14 @@
   </header>
 
   <main>
-    <section class="page-hero small-hero">
-      <p class="eyebrow">Animation examples</p>
-      <h1>Animation prompts</h1>
-      <p>Browse practical animation examples, see how each one should behave, then copy the precise prompt.</p>
-    </section>
-
-    <section class="section tool-panel">
-      <div class="section-heading compact">
-        <div>
-          <p class="eyebrow">Prompt generator</p>
-          <h2>Create a custom animation prompt</h2>
-        </div>
-      </div>
-      <form class="generator-form" data-generator="animation">
-        <label>Animation type<select name="animationType"><option>Hover animation</option><option>Page transition</option><option>Loading indicator</option><option>Menu animation</option><option>Card interaction</option><option>Microinteraction</option></select></label>
-        <label>UI element<input name="element" placeholder="Example: dashboard cards, buttons, sidebar menu" /></label>
-        <label>Style<select name="style"><option>Minimal dark UI</option><option>Dark command dashboard</option><option>Light professional dashboard</option><option>Clean Apple-style</option><option>Soft modern</option></select></label>
-        <label>Speed<select name="speed"><option>Fast and responsive</option><option>Smooth and moderate</option><option>Slow and elegant</option></select></label>
-        <label>Intensity<select name="intensity"><option>Subtle</option><option>Noticeable but polished</option><option>Expressive</option></select></label>
-        <label>Purpose<input name="purpose" placeholder="Example: make the interface feel more interactive" /></label>
-        <label class="full">Extra notes<textarea name="notes" placeholder="Any details to include or avoid"></textarea></label>
-        <div class="form-actions full"><button class="button primary" type="submit">Generate Prompt</button><button class="button secondary" type="button" data-clear>Clear</button></div>
-      </form>
-      <div class="output-box" data-output>Fill out the fields and generate a prompt.</div>
-      <button class="button copy-output" data-copy-output type="button">Copy Generated Prompt</button>
+    <section class="page-title-row">
+      <h1>Animation Prompt Library</h1>
+      <input class="search-input compact-search" data-search="animationCards" placeholder="Search animations..." />
     </section>
 
     <section class="section">
-      <div class="section-heading compact">
-        <div>
-          <p class="eyebrow">Browse</p>
-          <h2>Examples and prompts</h2>
-        </div>
-        <input class="search-input" data-search="animationCards" placeholder="Search animations..." />
-      </div>
       <div class="chip-row" data-filter-group="animationCards"></div>
-      <div class="prompt-grid" data-card-grid="animationCards"></div>
+      <div class="prompt-grid reference-grid" data-card-grid="animationCards"></div>
     </section>
   </main>
 
