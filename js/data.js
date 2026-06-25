@@ -3,148 +3,172 @@ const PRDR_DATA = {
     {
       title: 'Soft Hover Lift',
       category: 'Buttons',
-      bestFor: 'Primary buttons, cards, and dashboard actions',
-      prompt: 'Create a subtle hover lift animation for a modern light professional dashboard. The element should rise slightly, gain a soft shadow, and return smoothly when the cursor leaves. Keep the motion polished, quick, and not distracting.'
+      bestFor: 'Primary buttons, dashboard cards, compact link cards, and call-to-action controls',
+      example: 'A button or card moves up 3-6px on hover, gains a soft shadow, and returns smoothly when the cursor leaves.',
+      prompt: 'Create a subtle hover lift animation for a modern dark dashboard UI. The element should rise 3-6px on hover, gain a soft shadow, slightly brighten the border, and return smoothly when the cursor leaves. Keep the motion quick, polished, and practical. Do not cause layout shift or overlap nearby elements.'
     },
     {
       title: 'Ripple Click Feedback',
       category: 'Buttons',
-      bestFor: 'Buttons that need clear click confirmation',
-      prompt: 'Create a clean ripple click animation for a button. When clicked, a soft circular ripple should expand from the click point and fade quickly. Keep the effect lightweight, professional, and easy to see without feeling flashy.'
+      bestFor: 'Buttons that need clear click confirmation without looking flashy',
+      example: 'When the user clicks a button, a soft circle expands from the click point and fades out quickly.',
+      prompt: 'Create a clean ripple click animation for a button. When clicked, a soft circular ripple should expand from the click point and fade within 350ms. Keep the effect lightweight, professional, and easy to see without looking playful or distracting.'
     },
     {
       title: 'Animated Border Focus',
       category: 'Buttons',
-      bestFor: 'Important call-to-action buttons and form controls',
-      prompt: 'Create an animated border effect where the border gently brightens or traces around the element on hover or focus. Use smooth timing, accessible contrast, and a restrained professional style.'
+      bestFor: 'Important buttons, input fields, search bars, and selected states',
+      example: 'A thin border gently brightens or traces around the element when hovered, focused, or selected.',
+      prompt: 'Create an animated focus border for interactive UI elements. On hover or keyboard focus, the border should smoothly brighten, add a subtle glow, and clearly show the active state. Use accessible contrast and keep the effect restrained, professional, and suitable for a dark interface.'
     },
     {
       title: 'Fade-In Page Load',
       category: 'Page Transitions',
-      bestFor: 'Simple websites and reference dashboards',
-      prompt: 'Create a smooth page-load animation where the main content fades in and moves upward slightly. Keep the animation short, professional, and optimized so the page still feels fast.'
+      bestFor: 'Reference pages, dashboards, landing pages, and simple static websites',
+      example: 'The page content fades in while moving slightly upward as the page first loads.',
+      prompt: 'Create a smooth page-load animation where the main content fades in from 0 opacity and moves upward 12-18px into place. Keep the duration around 450-650ms, use easing that feels polished, and avoid delaying important content from being usable.'
     },
     {
       title: 'Staggered Card Reveal',
       category: 'Page Transitions',
-      bestFor: 'Dashboards, galleries, and prompt libraries',
-      prompt: 'Create a staggered reveal animation for a grid of cards. Each card should fade in and slide up one after another with a small delay. Keep the animation smooth, lightweight, and polished.'
+      bestFor: 'Prompt libraries, galleries, dashboards, and grids with many cards',
+      example: 'Cards appear one after another in a clean sequence instead of all at once.',
+      prompt: 'Create a staggered reveal animation for a grid of cards. Each card should fade in and slide up slightly with a 50-90ms delay between cards. Keep the animation smooth and lightweight. The grid should remain responsive and stable with no layout jumping.'
     },
     {
       title: 'Skeleton Loader',
       category: 'Loading',
-      bestFor: 'Lists, cards, dashboards, and media grids',
-      prompt: 'Create a clean skeleton loading state for content cards. Use soft placeholder blocks with a gentle shimmer effect. Make it feel professional and helpful while data or files are loading.'
+      bestFor: 'Lists, cards, dashboards, media grids, and pages waiting for data',
+      example: 'Temporary gray placeholder bars show where text, thumbnails, and cards will load.',
+      prompt: 'Create a clean skeleton loading state for content cards. Use rounded placeholder blocks for titles, text, thumbnails, and buttons, with a subtle shimmer animation. The loader should match the final layout size so the page does not jump when real content appears.'
     },
     {
       title: 'Progress Bar With Status Text',
       category: 'Loading',
-      bestFor: 'Apps that scan, import, export, or process files',
-      prompt: 'Create a user-friendly progress bar with clear status text. Show the current step, percentage progress, and a calm message explaining what is happening. Keep the visual design clean and reassuring.'
+      bestFor: 'Apps that scan folders, import files, export data, or process long tasks',
+      example: 'A progress bar shows percentage plus text like “Scanning files...” or “Processing 42 of 300 items.”',
+      prompt: 'Create a user-friendly progress bar with clear status text. Show the current step, percentage progress, and a calm message explaining what is happening. Include a completed state and an error state. Keep the design clean, readable, and reassuring.'
     },
     {
       title: 'Expandable Card',
       category: 'Cards',
-      bestFor: 'Reference cards, settings panels, and content previews',
-      prompt: 'Create an expandable card animation. When opened, the card should smoothly grow to reveal more content without jumping or overlapping nearby elements. Keep spacing stable and the motion polished.'
+      bestFor: 'Reference cards, settings panels, prompt details, and compact dashboards',
+      example: 'A compact card expands downward to reveal more details, buttons, or prompt text.',
+      prompt: 'Create an expandable card animation. When opened, the card should smoothly grow downward to reveal more content without jumping, overlapping nearby elements, or losing scroll position. Include a clear collapsed and expanded state with a small chevron rotation.'
     },
     {
       title: 'Image Zoom Card',
       category: 'Cards',
-      bestFor: 'Portfolio, gallery, and inspiration cards',
-      prompt: 'Create a card hover animation where the image subtly zooms in while the card shadow becomes slightly stronger. Keep the image inside its container and avoid layout shift.'
+      bestFor: 'Portfolio cards, design references, gallery items, and inspiration boards',
+      example: 'The image inside a card zooms slightly while the card itself stays the same size.',
+      prompt: 'Create a card hover animation where the image subtly zooms in inside its container while the card border brightens and the shadow increases slightly. The image must stay clipped inside the card, and the layout must not shift.'
     },
     {
       title: 'Animated Nav Underline',
       category: 'Navigation',
-      bestFor: 'Top navigation menus and tabs',
-      prompt: 'Create a smooth animated underline for navigation links. The underline should slide in on hover and clearly show the active page. Keep it minimal, readable, and professional.'
+      bestFor: 'Top navigation menus, tab bars, and compact dashboards',
+      example: 'A small underline slides under a nav link when hovered and stays visible on the active page.',
+      prompt: 'Create a smooth animated underline for navigation links. On hover, the underline should slide in from the left. On the active page, the underline should remain visible. Keep the animation minimal, readable, and professional.'
     },
     {
       title: 'Sidebar Reveal',
       category: 'Navigation',
-      bestFor: 'App dashboards and admin tools',
-      prompt: 'Create a sidebar reveal animation where the panel slides in smoothly, the background dims slightly, and the content remains easy to read. Include clear close behavior and avoid trapping the user.'
+      bestFor: 'App dashboards, mobile menus, admin panels, and settings-heavy tools',
+      example: 'A sidebar slides in from the left, the background dims, and a close button is clearly visible.',
+      prompt: 'Create a sidebar reveal animation where the panel slides in smoothly from the left, the page background dims slightly, and the first interactive item receives focus. Include clear close behavior, keyboard accessibility, and no content overlap.'
     },
     {
       title: 'Toast Notification',
       category: 'Microinteractions',
-      bestFor: 'Copy confirmations, saved settings, and success messages',
-      prompt: 'Create a polished toast notification animation. The message should slide in gently, remain visible long enough to read, then fade out smoothly. Use friendly wording and avoid blocking the interface.'
+      bestFor: 'Copy confirmations, saved settings, successful exports, and completed actions',
+      example: 'A small message slides up saying “Copied to clipboard” and fades away after a short delay.',
+      prompt: 'Create a polished toast notification animation. The toast should slide up gently, remain visible long enough to read, then fade out smoothly. It should not block important controls. Use friendly, concise wording and include success, warning, and error states.'
     },
     {
       title: 'Toggle Switch Motion',
       category: 'Microinteractions',
-      bestFor: 'Settings panels and developer options',
-      prompt: 'Create a smooth toggle switch animation with clear on and off states. The knob should glide naturally, the label should be readable, and the state should be obvious without relying only on color.'
+      bestFor: 'Settings pages, developer menus, theme toggles, and feature switches',
+      example: 'The switch knob glides left or right and the label clearly changes between on and off.',
+      prompt: 'Create a smooth toggle switch animation with clear on and off states. The knob should glide naturally, the label should update clearly, and the state should be obvious without relying only on color. Keep the control accessible and compact.'
     },
     {
       title: 'Search Result Reveal',
       category: 'Microinteractions',
-      bestFor: 'Searchable libraries and file browsers',
-      prompt: 'Create a search result reveal animation where matching items fade in cleanly and non-matching items disappear without layout glitches. Keep the interaction fast and responsive.'
+      bestFor: 'Searchable libraries, file browsers, prompt hubs, and dashboards',
+      example: 'Matching items remain visible while non-matching cards fade out or collapse cleanly.',
+      prompt: 'Create a search result reveal animation where matching items fade in cleanly and non-matching items fade or collapse without layout glitches. Keep the interaction fast, responsive, and practical for large card lists.'
     }
   ],
   designCards: [
     {
-      title: 'Light Professional Dashboard',
+      title: 'Dark Command Dashboard',
       category: 'Dashboard',
-      bestFor: 'Reference hubs, internal tools, and productivity apps',
-      prompt: 'Create a light professional dashboard UI with a soft gray background, white rounded cards, subtle shadows, clean typography, and clear spacing. The layout should feel organized, trustworthy, and easy to scan. Avoid clutter, overlapping elements, and overly decorative effects.'
+      bestFor: 'Personal hubs, prompt libraries, internal tools, and productivity dashboards',
+      example: 'Dark background, compact cards, clear navigation, subtle blue accents, search/filter controls, and practical tools on the homepage.',
+      prompt: 'Create a dark command dashboard UI for a personal productivity hub. Use a deep navy/black background, compact rounded cards, subtle borders, soft blue accent colors, clear navigation, searchable link cards, and practical utility sections. Make it feel private, fast, organized, and built for daily use rather than public marketing.'
+    },
+    {
+      title: 'Compact Link Hub',
+      category: 'Layout',
+      bestFor: 'Homepages that will eventually contain many links and reference pages',
+      example: 'Small cards in a dense grid with emoji icons, title, short description, and quick filtering.',
+      prompt: 'Create a compact link hub layout with small clickable cards arranged in a responsive grid. Each card should include a small icon or emoji, a short title, and a one-line description. Include a filter/search bar so many future links remain easy to find. Keep spacing tight but readable.'
     },
     {
       title: 'Clean Apple-Style Interface',
       category: 'Minimal',
       bestFor: 'Media apps, portfolio pages, and polished utilities',
-      prompt: 'Create a clean Apple-inspired interface with generous spacing, simple typography, soft neutral colors, rounded panels, and polished controls. Keep the UI calm, premium, and highly readable.'
+      example: 'Large white space, soft rounded panels, refined typography, minimal controls, and calm visual hierarchy.',
+      prompt: 'Create a clean Apple-inspired interface with generous spacing, simple typography, soft neutral colors, rounded panels, and polished controls. Keep the UI calm, premium, and highly readable. Avoid clutter, heavy borders, and excessive decoration.'
     },
     {
       title: 'Bento Grid Layout',
       category: 'Layout',
-      bestFor: 'Modern landing pages and feature hubs',
-      prompt: 'Create a modern bento grid layout with cards of different sizes, strong visual hierarchy, rounded corners, and clear section grouping. Make sure the layout remains responsive and balanced on smaller screens.'
+      bestFor: 'Modern landing pages, feature hubs, and dashboard overview sections',
+      example: 'Cards of different sizes form a visually interesting grid while still staying organized and responsive.',
+      prompt: 'Create a modern bento grid layout with cards of different sizes, strong visual hierarchy, rounded corners, and clear section grouping. Use the layout to highlight the most important content first. Make sure the grid remains responsive and balanced on smaller screens.'
     },
     {
       title: 'Minimal Professional UI',
       category: 'Minimal',
-      bestFor: 'Business tools, forms, and documentation sites',
-      prompt: 'Create a minimal professional UI with crisp typography, simple borders, restrained colors, and strong spacing. Prioritize readability, clarity, and practical usability over decoration.'
+      bestFor: 'Business tools, forms, documentation sites, and client-facing pages',
+      example: 'Simple borders, readable typography, strong spacing, restrained color, and no unnecessary effects.',
+      prompt: 'Create a minimal professional UI with crisp typography, simple borders, restrained colors, and strong spacing. Prioritize readability, clarity, and practical usability over decoration. Make every button, form field, and section label easy to understand.'
     },
     {
       title: 'Soft Gradient UI',
       category: 'Visual Style',
-      bestFor: 'Friendly websites, creative tools, and personal dashboards',
-      prompt: 'Create a soft gradient UI with gentle background gradients, white cards, subtle shadows, and clean buttons. Keep the colors controlled and professional so the design feels friendly without becoming distracting.'
-    },
-    {
-      title: 'Command Center Dashboard',
-      category: 'Dashboard',
-      bestFor: 'Powerful hubs, admin panels, and workflow tools',
-      prompt: 'Create a command center dashboard with clear navigation, grouped cards, quick actions, search/filter controls, and status sections. Make it feel powerful but not overwhelming. Keep the layout clean, practical, and expandable.'
+      bestFor: 'Friendly websites, creative tools, personal dashboards, and lightweight apps',
+      example: 'Gentle gradients sit behind clean cards, giving the page personality without hurting readability.',
+      prompt: 'Create a soft gradient UI with gentle background gradients, clean cards, subtle shadows, and readable buttons. Keep the colors controlled and professional so the design feels friendly without becoming distracting. Maintain strong contrast and clear spacing.'
     },
     {
       title: 'Form-Heavy Utility Layout',
       category: 'Layout',
-      bestFor: 'Prompt generators, settings tools, and app builders',
-      prompt: 'Create a form-heavy utility interface that is easy to fill out. Use grouped fields, clear labels, helpful placeholder text, vertical spacing, and strong output areas. Avoid technical jargon in the user-facing wording.'
+      bestFor: 'Prompt generators, settings tools, admin utilities, and app builders',
+      example: 'Grouped fields, clear labels, helpful placeholders, vertical flow, and a large generated output box.',
+      prompt: 'Create a form-heavy utility interface that is easy to fill out. Use grouped fields, clear labels, helpful placeholder text, vertical spacing, and strong output areas. Keep the form responsive and avoid spreading controls too far across the screen.'
     },
     {
       title: 'Card-Based Reference Library',
       category: 'Library',
-      bestFor: 'Prompt libraries, resource hubs, and inspiration collections',
-      prompt: 'Create a card-based reference library with searchable cards, category filters, copy buttons, and short descriptions. Keep the cards evenly spaced, consistent in height where possible, and easy to scan.'
-    },
-    {
-      title: 'Modern SaaS Landing Page',
-      category: 'Website',
-      bestFor: 'Service websites and product pages',
-      prompt: 'Create a modern SaaS landing page with a clear hero section, benefit cards, feature sections, testimonials, pricing or CTA area, and a polished footer. Use clean typography, soft shadows, and a professional visual hierarchy.'
+      bestFor: 'Prompt libraries, resource hubs, inspiration collections, and reusable examples',
+      example: 'Searchable cards with category chips, best-use notes, examples, precise prompts, and copy buttons.',
+      prompt: 'Create a card-based reference library with searchable cards, category filters, examples, copy-ready prompts, and copy buttons. Keep cards evenly spaced and easy to scan. Each card should show what the reference is, when to use it, an example, and a precise prompt to recreate it.'
     },
     {
       title: 'Internal IT Tool UI',
       category: 'Utility',
-      bestFor: 'Help desk tools, admin utilities, and support dashboards',
+      bestFor: 'Help desk tools, admin utilities, support dashboards, and internal workflows',
+      example: 'Status cards, safe action buttons, confirmation prompts, logs, progress states, and simple wording.',
       prompt: 'Create an internal IT tool interface that is practical and low-clutter. Include clear status messages, safe action buttons, confirmation prompts for risky actions, progress indicators for long tasks, and simple wording for non-technical users.'
+    },
+    {
+      title: 'Prompt Generator Workspace',
+      category: 'Prompt Tool',
+      bestFor: 'Pages where users fill out fields to generate stronger prompts',
+      example: 'Dropdowns and text fields on top, generated prompt output below, with copy and clear buttons.',
+      prompt: 'Create a prompt generator workspace with guided fields, dropdowns, examples, generated output, copy buttons, and clear/reset controls. The layout should make it easy for someone to turn a rough idea into a complete precise prompt without needing to understand technical wording.'
     }
   ],
   appCards: [
