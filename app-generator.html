@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>App / GUI Generator | PRDR Command Hub</title>
+  <title>App Generator | PRDR Command Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -17,45 +17,38 @@
       <a href="index.html">Home</a>
       <a href="animations.html">Animations</a>
       <a href="designs.html">Designs</a>
-      <a href="troubleshooting.html">Troubleshooting</a>
       <a class="active" href="app-generator.html">App Generator</a>
     </nav>
   </header>
 
   <main>
-    <section class="page-hero">
-      <p class="eyebrow">Software and GUI reference generator</p>
-      <h1>Turn a rough app idea into a strong build prompt</h1>
-      <p>Use this page when you want a local app, web app, GUI tool, dashboard, creative utility, or internal IT helper built cleanly and practically.</p>
+    <section class="page-title-row single-title">
+      <h1>App / GUI / Software Prompt Generator</h1>
     </section>
 
-    <section class="section tool-panel">
-      <div class="section-heading compact"><div><p class="eyebrow">App prompt builder</p><h2>Guided app/software prompt generator</h2></div></div>
-      <form class="generator-form" data-generator="app">
-        <label>App name<input name="appName" placeholder="Example: PHX File Organizer" /></label>
-        <label>Main user goal<input name="goal" placeholder="What should the app help you do?" /></label>
-        <label>App type<select name="appType"><option>Local desktop app</option><option>Web app</option><option>Website</option><option>GUI utility</option><option>Internal IT tool</option><option>Creative tool</option><option>Dashboard</option></select></label>
-        <label>Platform<select name="platform"><option>Windows</option><option>Browser</option><option>Cross-platform</option><option>Desktop and browser</option></select></label>
-        <label class="full">Must-have features<textarea name="features" placeholder="List the main features the app needs."></textarea></label>
-        <label class="full">Nice-to-have features<textarea name="niceFeatures" placeholder="Optional ideas that should not bloat the first version."></textarea></label>
-        <label>Design style<select name="designStyle"><option>Light professional dashboard</option><option>Clean Apple-style</option><option>Minimal utility app</option><option>Modern command center</option><option>Creative studio interface</option></select></label>
-        <label>Loading/progress needs<input name="progress" placeholder="Example: show progress while scanning folders" /></label>
-        <label>Error handling needs<input name="errors" placeholder="Example: friendly messages if a folder cannot be read" /></label>
-        <label>Launcher needed?<select name="launcher"><option>Use the best launcher for the app idea</option><option>Normal launcher and debug launcher</option><option>No launcher needed</option></select></label>
-        <label class="full">Extra notes<textarea name="notes" placeholder="Anything else I should include, avoid, or prioritize."></textarea></label>
-        <div class="form-actions full"><button class="button primary" type="submit">Generate App Prompt</button><button class="button secondary" type="button" data-clear>Clear</button></div>
+    <section class="section tool-panel app-reference-generator">
+      <p class="helper-text">Fill this out in normal language. The generated prompt applies your app-build standard automatically, including layout stability, anti-overlap rules, performance safeguards, launchers, developer menu guidance, customization, README, and final delivery requirements.</p>
+
+      <form class="generator-form reference-form" data-generator="referenceApp">
+        <label class="full">My app idea<textarea name="idea" placeholder="Describe the app, program, script, or GUI you want built."></textarea></label>
+        <label class="full">What I want it to do<textarea name="tasks" placeholder="Optional: list the main tasks, features, buttons, tools, or workflow."></textarea></label>
+        <label>Who will use it?<input name="users" placeholder="Example: me, my team, staff, customers, members" /></label>
+        <label>App type<select name="appType"><option>Let ChatGPT choose the best approach</option><option>Local desktop app</option><option>Windows GUI tool</option><option>Web app</option><option>Script with simple GUI</option><option>Internal IT tool</option><option>Creative tool</option></select></label>
+        <label class="full">Style or design direction<textarea name="style" placeholder="Optional: paste a style prompt, describe the mood, or mention a screenshot/reference."></textarea></label>
+        <label class="full">Files, folders, websites, formats, or systems<textarea name="systems" placeholder="Optional: list anything it should read, save, import, export, connect to, or manage."></textarea></label>
+        <label>Performance concern<select name="performance"><option>Normal app</option><option>Large folders or many files</option><option>Media-heavy app</option><option>Imports / exports / processing</option><option>Network or website features</option></select></label>
+        <label>Customization level<select name="customization"><option>Use customization only where it makes sense</option><option>Include full theme/config customization</option><option>Keep customization simple</option><option>No customization needed unless required</option></select></label>
+        <label>Developer menu<select name="devMenu"><option>Include only if useful</option><option>Include hidden Ctrl + Shift + D developer menu</option><option>Do not include a developer menu unless necessary</option></select></label>
+        <label>Launcher preference<select name="launcher"><option>Use the safest best launcher</option><option>Normal launcher and debug launcher</option><option>No special launcher unless needed</option></select></label>
+        <label class="full">Anything to avoid<textarea name="avoid" placeholder="Optional: bloat, overlap, hidden scripts, confusing wording, specific technologies, etc."></textarea></label>
+        <div class="form-actions full">
+          <button class="button primary" type="submit">Generate Full Prompt</button>
+          <button class="button secondary" type="button" data-clear>Clear</button>
+        </div>
       </form>
-      <div class="output-box tall" data-output>Fill out the fields and generate a complete app-building prompt.</div>
-      <button class="button copy-output" data-copy-output type="button">Copy Generated Prompt</button>
-    </section>
 
-    <section class="section">
-      <div class="section-heading compact">
-        <div><p class="eyebrow">GUI inspiration</p><h2>Reusable app and software reference cards</h2></div>
-        <input class="search-input" data-search="appCards" placeholder="Search app references..." />
-      </div>
-      <div class="chip-row" data-filter-group="appCards"></div>
-      <div class="prompt-grid" data-card-grid="appCards"></div>
+      <div class="output-box tall" data-output>Generated app prompt will appear here.</div>
+      <button class="button copy-output" data-copy-output type="button">Copy Generated Prompt</button>
     </section>
   </main>
 
