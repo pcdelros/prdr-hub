@@ -24,17 +24,92 @@
   <main>
     <section class="page-title-row">
       <h1>Animation Prompt Library</h1>
-      <input class="search-input compact-search" data-search="animationCards" placeholder="Search animations..." />
     </section>
 
-    <section class="section">
-      <div class="chip-row" data-filter-group="animationCards"></div>
-      <div class="prompt-grid reference-grid" data-card-grid="animationCards"></div>
+    <section class="section static-reference-grid">
+      <article class="prompt-card">
+        <div class="visual-preview animation-preview preview-buttons"><span class="vp-dot"></span><span class="vp-line vp-line-one"></span><span class="vp-line vp-line-two"></span><span class="vp-shape vp-shape-one"></span><span class="vp-shape vp-shape-two"></span></div>
+        <div class="prompt-meta"><span class="category-badge">Buttons</span></div>
+        <h3>Soft Hover Lift</h3>
+        <p class="best-for">Use for primary buttons, dashboard cards, and compact action links.</p>
+        <p class="prompt-label">Prompt</p>
+        <p>Create a subtle hover lift animation for a modern app or GUI. On hover, the element should rise 3-6px, slightly brighten its border, and gain a soft shadow. On mouse leave, it should return smoothly. Keep the effect polished, fast, and practical with no layout shift or overlap.</p>
+        <button class="button secondary small" data-copy-prompt="Create a subtle hover lift animation for a modern app or GUI. On hover, the element should rise 3-6px, slightly brighten its border, and gain a soft shadow. On mouse leave, it should return smoothly. Keep the effect polished, fast, and practical with no layout shift or overlap.">Copy Prompt</button>
+      </article>
+
+      <article class="prompt-card">
+        <div class="visual-preview animation-preview preview-press"><span class="vp-dot"></span><span class="vp-line vp-line-one"></span><span class="vp-line vp-line-two"></span><span class="vp-shape vp-shape-one press-button"></span><span class="vp-shape vp-shape-two"></span></div>
+        <div class="prompt-meta"><span class="category-badge">Buttons</span></div>
+        <h3>Press Down Click</h3>
+        <p class="best-for">Use for buttons that need tactile click feedback.</p>
+        <p class="prompt-label">Prompt</p>
+        <p>Create a tactile button press animation. On mouse down, the button should scale down slightly to 0.97, reduce its shadow, and feel physically pressed. On release, it should return to normal with a smooth 120-180ms transition. Keep it subtle and professional.</p>
+        <button class="button secondary small" data-copy-prompt="Create a tactile button press animation. On mouse down, the button should scale down slightly to 0.97, reduce its shadow, and feel physically pressed. On release, it should return to normal with a smooth 120-180ms transition. Keep it subtle and professional.">Copy Prompt</button>
+      </article>
+
+      <article class="prompt-card">
+        <div class="visual-preview animation-preview preview-loading"><span class="vp-dot"></span><span class="vp-line vp-line-one"></span><span class="vp-line vp-line-two"></span><span class="vp-shape vp-shape-one"></span><span class="vp-shape vp-shape-two"></span></div>
+        <div class="prompt-meta"><span class="category-badge">Loading</span></div>
+        <h3>Progress With Status</h3>
+        <p class="best-for">Use for scanning, importing, exporting, or processing tasks.</p>
+        <p class="prompt-label">Prompt</p>
+        <p>Create a progress bar with status text for a long-running task. Show percentage, current step, and a short plain-language message. Include loading, success, paused, canceled, and error states. Keep it readable and reassuring.</p>
+        <button class="button secondary small" data-copy-prompt="Create a progress bar with status text for a long-running task. Show percentage, current step, and a short plain-language message. Include loading, success, paused, canceled, and error states. Keep it readable and reassuring.">Copy Prompt</button>
+      </article>
+
+      <article class="prompt-card">
+        <div class="visual-preview animation-preview preview-skeleton"><span class="vp-dot"></span><span class="vp-line vp-line-one shimmer"></span><span class="vp-line vp-line-two shimmer"></span><span class="vp-shape vp-shape-one shimmer"></span><span class="vp-shape vp-shape-two shimmer"></span></div>
+        <div class="prompt-meta"><span class="category-badge">Loading</span></div>
+        <h3>Skeleton Loader</h3>
+        <p class="best-for">Use for dashboards, cards, lists, galleries, and data loading.</p>
+        <p class="prompt-label">Prompt</p>
+        <p>Create a skeleton loading state that matches the final content layout. Use rounded placeholder blocks for titles, text, thumbnails, and buttons with a subtle shimmer. Prevent layout shift when real content loads.</p>
+        <button class="button secondary small" data-copy-prompt="Create a skeleton loading state that matches the final content layout. Use rounded placeholder blocks for titles, text, thumbnails, and buttons with a subtle shimmer. Prevent layout shift when real content loads.">Copy Prompt</button>
+      </article>
+
+      <article class="prompt-card">
+        <div class="visual-preview animation-preview preview-page-transitions"><span class="vp-dot"></span><span class="vp-line vp-line-one"></span><span class="vp-line vp-line-two"></span><span class="vp-shape vp-shape-one"></span><span class="vp-shape vp-shape-two"></span></div>
+        <div class="prompt-meta"><span class="category-badge">Page Transitions</span></div>
+        <h3>Staggered Card Reveal</h3>
+        <p class="best-for">Use for prompt libraries, dashboards, galleries, and grids.</p>
+        <p class="prompt-label">Prompt</p>
+        <p>Create a staggered reveal animation for a card grid. Cards should fade in and slide up with a 50-90ms delay between items. Keep the grid layout stable and responsive with no jumping or overlap.</p>
+        <button class="button secondary small" data-copy-prompt="Create a staggered reveal animation for a card grid. Cards should fade in and slide up with a 50-90ms delay between items. Keep the grid layout stable and responsive with no jumping or overlap.">Copy Prompt</button>
+      </article>
+
+      <article class="prompt-card">
+        <div class="visual-preview animation-preview preview-cards"><span class="vp-dot"></span><span class="vp-line vp-line-one"></span><span class="vp-line vp-line-two"></span><span class="vp-shape vp-shape-one"></span><span class="vp-shape vp-shape-two"></span></div>
+        <div class="prompt-meta"><span class="category-badge">Cards</span></div>
+        <h3>Expandable Card</h3>
+        <p class="best-for">Use for settings panels, prompt details, and compact cards.</p>
+        <p class="prompt-label">Prompt</p>
+        <p>Create an expandable card animation. When opened, the card should smoothly expand downward to reveal more content without overlapping nearby elements. Include a rotating chevron, stable spacing, and clean collapsed and expanded states.</p>
+        <button class="button secondary small" data-copy-prompt="Create an expandable card animation. When opened, the card should smoothly expand downward to reveal more content without overlapping nearby elements. Include a rotating chevron, stable spacing, and clean collapsed and expanded states.">Copy Prompt</button>
+      </article>
+
+      <article class="prompt-card">
+        <div class="visual-preview animation-preview preview-navigation"><span class="vp-dot"></span><span class="vp-line vp-line-one"></span><span class="vp-line vp-line-two"></span><span class="vp-shape vp-shape-one"></span><span class="vp-shape vp-shape-two"></span></div>
+        <div class="prompt-meta"><span class="category-badge">Navigation</span></div>
+        <h3>Animated Nav Underline</h3>
+        <p class="best-for">Use for nav bars, tab groups, and selected page indicators.</p>
+        <p class="prompt-label">Prompt</p>
+        <p>Create an animated navigation underline. On hover, the underline should slide in smoothly from the left. On the active page, it should remain visible. Keep it minimal, fast, and professional.</p>
+        <button class="button secondary small" data-copy-prompt="Create an animated navigation underline. On hover, the underline should slide in smoothly from the left. On the active page, it should remain visible. Keep it minimal, fast, and professional.">Copy Prompt</button>
+      </article>
+
+      <article class="prompt-card">
+        <div class="visual-preview animation-preview preview-microinteractions"><span class="vp-dot"></span><span class="vp-line vp-line-one"></span><span class="vp-line vp-line-two"></span><span class="vp-shape vp-shape-one"></span><span class="vp-shape vp-shape-two"></span></div>
+        <div class="prompt-meta"><span class="category-badge">Microinteractions</span></div>
+        <h3>Toast Notification</h3>
+        <p class="best-for">Use for copy, save, export, success, warning, or error feedback.</p>
+        <p class="prompt-label">Prompt</p>
+        <p>Create a toast notification animation. It should slide up gently, stay visible long enough to read, then fade out. Include success, warning, and error styles. Do not block important controls.</p>
+        <button class="button secondary small" data-copy-prompt="Create a toast notification animation. It should slide up gently, stay visible long enough to read, then fade out. Include success, warning, and error styles. Do not block important controls.">Copy Prompt</button>
+      </article>
     </section>
   </main>
 
   <button class="back-to-top" data-back-to-top aria-label="Back to top">↑</button>
-  <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
