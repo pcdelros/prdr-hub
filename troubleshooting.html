@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting Prompts | PRDR Command Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="troubleshooting">
+  <header class="site-header">
+    <a class="brand" href="index.html">PRDR Command Hub</a>
+    <button class="mobile-menu" data-menu-toggle aria-label="Open navigation">☰</button>
+    <nav class="nav" data-nav>
+      <a href="index.html">Home</a>
+      <a href="animations.html">Animations</a>
+      <a href="designs.html">Designs</a>
+      <a class="active" href="troubleshooting.html">Troubleshooting</a>
+      <a href="app-generator.html">App Generator</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-title-row">
+      <h1>Troubleshooting Prompt Library</h1>
+      <input class="search-input compact-search" data-search="troubleshootingCards" placeholder="Search errors..." />
+    </section>
+
+    <section class="section">
+      <div class="chip-row" data-filter-group="troubleshootingCards"></div>
+      <div class="prompt-grid reference-grid" data-card-grid="troubleshootingCards"></div>
+    </section>
+  </main>
+
+  <button class="back-to-top" data-back-to-top aria-label="Back to top">↑</button>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
