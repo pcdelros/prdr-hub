@@ -36,6 +36,23 @@ function uniqueCategories(cards) {
   return ['All', ...new Set(cards.map(card => card.category))];
 }
 
+function slugify(text) {
+  return String(text || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function visualPreview(card, key) {
+  const category = slugify(card.category);
+  const title = slugify(card.title);
+  const type = key === 'designCards' ? 'design' : 'animation';
+  return `<div class="visual-preview ${type}-preview preview-${category} preview-${title}" aria-label="Visual preview for ${card.title}">
+    <span class="vp-dot"></span>
+    <span class="vp-line vp-line-one"></span>
+    <span class="vp-line vp-line-two"></span>
+    <span class="vp-shape vp-shape-one"></span>
+    <span class="vp-shape vp-shape-two"></span>
+  </div>`;
+}
+
 function renderCards(key, filter = 'All', query = '') {
   const grid = $(`[data-card-grid="${key}"]`);
   if (!grid || !window.PRDR_DATA?.[key]) return;
@@ -43,17 +60,17 @@ function renderCards(key, filter = 'All', query = '') {
   const normalizedQuery = query.trim().toLowerCase();
   const cards = PRDR_DATA[key].filter(card => {
     const categoryMatch = filter === 'All' || card.category === filter;
-    const text = `${card.title} ${card.category} ${card.bestFor || ''} ${card.example || ''} ${card.prompt || ''}`.toLowerCase();
+    const text = `${card.title} ${card.category} ${card.bestFor || ''} ${card.prompt || ''}`.toLowerCase();
     return categoryMatch && (!normalizedQuery || text.includes(normalizedQuery));
   });
 
   grid.innerHTML = cards.map(card => `
     <article class="prompt-card" data-category="${card.category}">
-      <div class="prompt-card-top"><span class="category-badge">${card.category}</span></div>
+      ${visualPreview(card, key)}
+      <div class="prompt-meta"><span class="category-badge">${card.category}</span></div>
       <h3>${card.title}</h3>
-      <p class="best-for"><strong>Best for:</strong> ${card.bestFor}</p>
-      ${card.example ? `<div class="example-box"><strong>Example:</strong> ${card.example}</div>` : ''}
-      <p class="prompt-label">Precise prompt</p>
+      <p class="best-for">${card.bestFor}</p>
+      <p class="prompt-label">Prompt</p>
       <p>${card.prompt}</p>
       <button class="button secondary small" data-copy-prompt="${encodeURIComponent(card.prompt)}">Copy Prompt</button>
     </article>
@@ -65,7 +82,7 @@ function renderCards(key, filter = 'All', query = '') {
 }
 
 function initCardLibraries() {
-  ['animationCards', 'designCards', 'appCards', 'troubleshootingCards'].forEach(key => {
+  ['animationCards', 'designCards', 'appCards'].forEach(key => {
     const grid = $(`[data-card-grid="${key}"]`);
     if (!grid || !window.PRDR_DATA?.[key]) return;
 
@@ -108,16 +125,13 @@ function initGenerators() {
       const type = form.dataset.generator;
       let prompt = '';
       if (type === 'referenceApp') prompt = buildReferenceAppPrompt(form);
-      if (type === 'animation') prompt = `Create a ${field(form, 'animationType').toLowerCase()} for ${field(form, 'element', 'the selected UI element')}. Use a ${field(form, 'style').toLowerCase()} style. Keep the animation smooth, lightweight, accessible, and professional.`;
-      if (type === 'design') prompt = `Create a polished ${field(form, 'projectType', 'digital interface')} using a ${field(form, 'visualStyle').toLowerCase()} visual style. Make the interface clean, practical, responsive, and easy to scan.`;
-      if (type === 'app') prompt = `Create a complete downloadable application for this idea: ${field(form, 'appName', 'Untitled App')}. Main user goal: ${field(form, 'goal', 'Help the user complete the main task quickly and clearly')}. Include runnable files, a clear launcher, debug option when useful, progress states, friendly errors, and a README for a non-developer.`;
       if (output) output.textContent = prompt;
     });
 
     $$('[data-clear]', form).forEach(button => {
       button.addEventListener('click', () => {
         form.reset();
-        if (output) output.textContent = output.classList.contains('tall') ? 'Generated app prompt will appear here.' : 'Fill out the fields and generate a prompt.';
+        if (output) output.textContent = 'Generated app prompt will appear here.';
       });
     });
 
