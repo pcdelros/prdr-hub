@@ -32,81 +32,6 @@ function initBackToTop() {
   button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-function uniqueCategories(cards) {
-  return ['All', ...new Set(cards.map(card => card.category))];
-}
-
-function slugify(text) {
-  return String(text || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
-
-function visualPreview(card, key) {
-  const category = slugify(card.category);
-  const title = slugify(card.title);
-  const type = key === 'designCards' ? 'design' : 'animation';
-  return `<div class="visual-preview ${type}-preview preview-${category} preview-${title}" aria-label="Visual preview for ${card.title}">
-    <span class="vp-dot"></span>
-    <span class="vp-line vp-line-one"></span>
-    <span class="vp-line vp-line-two"></span>
-    <span class="vp-shape vp-shape-one"></span>
-    <span class="vp-shape vp-shape-two"></span>
-  </div>`;
-}
-
-function renderCards(key, filter = 'All', query = '') {
-  const grid = $(`[data-card-grid="${key}"]`);
-  if (!grid || !window.PRDR_DATA?.[key]) return;
-
-  const normalizedQuery = query.trim().toLowerCase();
-  const cards = PRDR_DATA[key].filter(card => {
-    const categoryMatch = filter === 'All' || card.category === filter;
-    const text = `${card.title} ${card.category} ${card.bestFor || ''} ${card.prompt || ''}`.toLowerCase();
-    return categoryMatch && (!normalizedQuery || text.includes(normalizedQuery));
-  });
-
-  grid.innerHTML = cards.map(card => `
-    <article class="prompt-card" data-category="${card.category}">
-      ${visualPreview(card, key)}
-      <div class="prompt-meta"><span class="category-badge">${card.category}</span></div>
-      <h3>${card.title}</h3>
-      <p class="best-for">${card.bestFor}</p>
-      <p class="prompt-label">Prompt</p>
-      <p>${card.prompt}</p>
-      <button class="button secondary small" data-copy-prompt="${encodeURIComponent(card.prompt)}">Copy Prompt</button>
-    </article>
-  `).join('') || '<p class="empty-state">No matching cards found.</p>';
-
-  $$('[data-copy-prompt]', grid).forEach(button => {
-    button.addEventListener('click', () => copyText(decodeURIComponent(button.dataset.copyPrompt)));
-  });
-}
-
-function initCardLibraries() {
-  ['animationCards', 'designCards', 'appCards'].forEach(key => {
-    const grid = $(`[data-card-grid="${key}"]`);
-    if (!grid || !window.PRDR_DATA?.[key]) return;
-
-    const filterGroup = $(`[data-filter-group="${key}"]`);
-    const search = $(`[data-search="${key}"]`);
-    let activeFilter = 'All';
-
-    if (filterGroup) {
-      filterGroup.innerHTML = uniqueCategories(PRDR_DATA[key]).map((category, index) => `<button class="chip ${index === 0 ? 'active' : ''}" data-filter="${category}">${category}</button>`).join('');
-      $$('[data-filter]', filterGroup).forEach(chip => {
-        chip.addEventListener('click', () => {
-          activeFilter = chip.dataset.filter;
-          $$('.chip', filterGroup).forEach(item => item.classList.remove('active'));
-          chip.classList.add('active');
-          renderCards(key, activeFilter, search?.value || '');
-        });
-      });
-    }
-
-    if (search) search.addEventListener('input', () => renderCards(key, activeFilter, search.value));
-    renderCards(key);
-  });
-}
-
 function field(form, name, fallback = '') {
   return form.elements[name]?.value?.trim() || fallback;
 }
@@ -139,6 +64,12 @@ function initGenerators() {
   });
 }
 
+function initStaticCopyButtons() {
+  $$('[data-copy-prompt]').forEach(button => {
+    button.addEventListener('click', () => copyText(button.dataset.copyPrompt));
+  });
+}
+
 function initHomeTools() {
   const linkSearch = $('[data-home-link-search]');
   const linkContainer = $('[data-home-links]');
@@ -153,7 +84,7 @@ function initHomeTools() {
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initBackToTop();
-  initCardLibraries();
   initGenerators();
+  initStaticCopyButtons();
   initHomeTools();
 });
