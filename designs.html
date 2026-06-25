@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design Prompt Library | PRDR Command Hub</title>
+  <title>Design Examples + Prompts | PRDR Command Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,19 +23,19 @@
 
   <main>
     <section class="page-hero">
-      <p class="eyebrow">Design reference library</p>
-      <h1>Design prompts for websites, apps, dashboards, and GUI tools</h1>
-      <p>Explore polished UI styles and generate detailed design prompts with layout, color mood, target user, device type, and usability rules.</p>
+      <p class="eyebrow">Design examples + exact prompts</p>
+      <h1>Browse UI styles and copy strong prompts to recreate them.</h1>
+      <p>Each design card explains when to use the style, what it should look like, and the exact prompt to give ChatGPT when you want that result.</p>
     </section>
 
     <section class="section tool-panel">
       <div class="section-heading compact"><div><p class="eyebrow">Prompt generator</p><h2>Create a custom design prompt</h2></div></div>
       <form class="generator-form" data-generator="design">
         <label>Project type<input name="projectType" placeholder="Example: portfolio site, local app, admin dashboard" /></label>
-        <label>Visual style<select name="visualStyle"><option>Light professional dashboard</option><option>Clean Apple-style</option><option>Bento grid UI</option><option>Minimal professional</option><option>Soft gradient UI</option><option>Command center dashboard</option></select></label>
-        <label>Color mood<select name="colorMood"><option>Soft neutrals</option><option>Blue and white professional</option><option>Warm modern</option><option>Monochrome minimal</option><option>Colorful but controlled</option></select></label>
-        <label>Layout type<select name="layoutType"><option>Dashboard card grid</option><option>Landing page sections</option><option>Sidebar app layout</option><option>Bento layout</option><option>Form-heavy utility layout</option></select></label>
-        <label>Target user<input name="targetUser" placeholder="Example: small business owner, IT staff, general user" /></label>
+        <label>Visual style<select name="visualStyle"><option>Dark command dashboard</option><option>Compact link hub</option><option>Clean Apple-style</option><option>Bento grid UI</option><option>Minimal professional</option><option>Soft gradient UI</option></select></label>
+        <label>Color mood<select name="colorMood"><option>Dark navy with blue accents</option><option>Soft neutrals</option><option>Blue and white professional</option><option>Warm modern</option><option>Monochrome minimal</option><option>Colorful but controlled</option></select></label>
+        <label>Layout type<select name="layoutType"><option>Compact dashboard grid</option><option>Dashboard card grid</option><option>Landing page sections</option><option>Sidebar app layout</option><option>Bento layout</option><option>Form-heavy utility layout</option></select></label>
+        <label>Target user<input name="targetUser" placeholder="Example: me, small business owner, IT staff, general user" /></label>
         <label>Device type<select name="deviceType"><option>Responsive desktop and mobile</option><option>Desktop-first</option><option>Mobile-first</option><option>Tablet-friendly</option></select></label>
         <label class="full">Must-have UI elements<textarea name="elements" placeholder="Cards, search bar, filters, buttons, modals, tables..."></textarea></label>
         <label class="full">Avoid<textarea name="avoid" placeholder="Overlapping elements, clutter, tiny text..."></textarea></label>
@@ -47,7 +47,7 @@
 
     <section class="section">
       <div class="section-heading compact">
-        <div><p class="eyebrow">Browse library</p><h2>Design prompt cards</h2></div>
+        <div><p class="eyebrow">Browse library</p><h2>Design examples and prompts</h2></div>
         <input class="search-input" data-search="designCards" placeholder="Search designs..." />
       </div>
       <div class="chip-row" data-filter-group="designCards"></div>
