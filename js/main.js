@@ -43,17 +43,17 @@ function renderCards(key, filter = 'All', query = '') {
   const normalizedQuery = query.trim().toLowerCase();
   const cards = PRDR_DATA[key].filter(card => {
     const categoryMatch = filter === 'All' || card.category === filter;
-    const text = `${card.title} ${card.category} ${card.bestFor} ${card.prompt}`.toLowerCase();
+    const text = `${card.title} ${card.category} ${card.bestFor} ${card.example || ''} ${card.prompt}`.toLowerCase();
     return categoryMatch && (!normalizedQuery || text.includes(normalizedQuery));
   });
 
   grid.innerHTML = cards.map(card => `
     <article class="prompt-card" data-category="${card.category}">
-      <div class="prompt-card-top">
-        <span class="category-badge">${card.category}</span>
-      </div>
+      <div class="prompt-card-top"><span class="category-badge">${card.category}</span></div>
       <h3>${card.title}</h3>
       <p class="best-for"><strong>Best for:</strong> ${card.bestFor}</p>
+      ${card.example ? `<div class="example-box"><strong>Example:</strong> ${card.example}</div>` : ''}
+      <p class="prompt-label">Precise prompt</p>
       <p>${card.prompt}</p>
       <button class="button secondary small" data-copy-prompt="${encodeURIComponent(card.prompt)}">Copy Prompt</button>
     </article>
@@ -85,10 +85,7 @@ function initCardLibraries() {
       });
     }
 
-    if (search) {
-      search.addEventListener('input', () => renderCards(key, activeFilter, search.value));
-    }
-
+    if (search) search.addEventListener('input', () => renderCards(key, activeFilter, search.value));
     renderCards(key);
   });
 }
@@ -149,10 +146,44 @@ Extra notes: ${field(form, 'notes')}` : ''}`;
       });
     });
 
-    if (copyButton && output) {
-      copyButton.addEventListener('click', () => copyText(output.textContent));
-    }
+    if (copyButton && output) copyButton.addEventListener('click', () => copyText(output.textContent));
   });
+}
+
+function initHomeTools() {
+  const linkSearch = $('[data-home-link-search]');
+  const linkContainer = $('[data-home-links]');
+  if (linkSearch && linkContainer) {
+    linkSearch.addEventListener('input', () => {
+      const query = linkSearch.value.toLowerCase().trim();
+      $$('.quick-link', linkContainer).forEach(link => link.style.display = link.textContent.toLowerCase().includes(query) ? 'grid' : 'none');
+    });
+  }
+
+  $$('[data-local-note]').forEach(area => {
+    const key = `prdr-${area.dataset.localNote}`;
+    area.value = localStorage.getItem(key) || '';
+    area.addEventListener('input', () => localStorage.setItem(key, area.value));
+  });
+
+  const homeForm = $('[data-home-prompt-form]');
+  const homeOutput = $('[data-home-prompt-output]');
+  if (homeForm && homeOutput) {
+    homeForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const thing = field(homeForm, 'thing', 'a digital project');
+      const style = field(homeForm, 'style', 'clean, modern, and practical');
+      const details = field(homeForm, 'details', 'clear layout, useful sections, polished UI, responsive behavior, and no overlapping elements');
+      homeOutput.textContent = `Create ${thing}. Use a ${style} style. Include ${details}. Make it organized, polished, easy to use, and responsive. Use strong spacing, clear labels, practical controls, and smooth interactions. Avoid clutter, overlapping elements, weak visual hierarchy, and confusing wording. Before building, provide a short implementation plan, then create the actual files or exact prompt/output needed.`;
+    });
+  }
+
+  const copyHome = $('[data-copy-home-output]');
+  if (copyHome && homeOutput) copyHome.addEventListener('click', () => copyText(homeOutput.textContent));
+
+  const basePrompt = $('[data-base-app-prompt]');
+  const copyBase = $('[data-copy-base-app-prompt]');
+  if (basePrompt && copyBase) copyBase.addEventListener('click', () => copyText(basePrompt.textContent));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -160,4 +191,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initCardLibraries();
   initGenerators();
+  initHomeTools();
 });
