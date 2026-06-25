@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRDR Command Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="PRDR Command Hub home">
+      <span class="brand-mark">P</span>
+      <span>PRDR Command Hub</span>
+    </a>
+    <button class="mobile-menu" data-menu-toggle aria-label="Open navigation">☰</button>
+    <nav class="nav" data-nav>
+      <a class="active" href="index.html">Home</a>
+      <a href="animations.html">Animations</a>
+      <a href="designs.html">Designs</a>
+      <a href="app-generator.html">App Generator</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero dashboard-hero">
+      <div class="eyebrow">Personal reference dashboard</div>
+      <h1>Your centralized workspace for design prompts, animation references, GUI inspiration, and app-building ideas.</h1>
+      <p>Use this hub to quickly open prompt libraries, generate stronger requests, and keep adding pages as your workflow grows.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="animations.html">Open Animation Library</a>
+        <a class="button secondary" href="app-generator.html">Build an App Prompt</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Main tools</p>
+          <h2>Reference pages</h2>
+        </div>
+        <p>Start with the pages below. Each page is built so more cards, categories, and prompt builders can be added later.</p>
+      </div>
+
+      <div class="card-grid three">
+        <article class="feature-card">
+          <span class="card-icon">↗</span>
+          <h3>Animation Prompt Library</h3>
+          <p>Web, app, and GUI animation ideas with copy-ready prompts for hover states, transitions, loaders, menus, cards, and microinteractions.</p>
+          <a class="card-link" href="animations.html">Open animations</a>
+        </article>
+
+        <article class="feature-card">
+          <span class="card-icon">□</span>
+          <h3>Design Prompt Library</h3>
+          <p>Professional UI styles, visual themes, layout systems, and polished design prompts for websites, apps, dashboards, and creative tools.</p>
+          <a class="card-link" href="designs.html">Open designs</a>
+        </article>
+
+        <article class="feature-card">
+          <span class="card-icon">✦</span>
+          <h3>App / GUI Generator</h3>
+          <p>A guided prompt builder for local apps, web apps, GUI utilities, internal IT tools, dashboards, and software concepts.</p>
+          <a class="card-link" href="app-generator.html">Open generator</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section">
+      <div class="panel soft-panel">
+        <p class="eyebrow">Recommended workflow</p>
+        <h2>How to use this hub</h2>
+        <ol class="steps">
+          <li>Pick a reference page based on what you are creating.</li>
+          <li>Search or filter the prompt cards.</li>
+          <li>Copy a prompt, or use the guided generator.</li>
+          <li>Paste the final prompt into ChatGPT when you want a build, design, or code plan.</li>
+        </ol>
+      </div>
+      <div class="panel roadmap-panel">
+        <p class="eyebrow">Future expansion</p>
+        <h2>Pages to add later</h2>
+        <div class="tag-list">
+          <span>IT Tool References</span>
+          <span>Webflow Client Prompts</span>
+          <span>Logo / Brand Library</span>
+          <span>Website Section Generator</span>
+          <span>GitHub Workflow Prompts</span>
+          <span>PHX WebSpace Assets</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" data-back-to-top aria-label="Back to top">↑</button>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
