@@ -11,7 +11,7 @@
 </head>
 <body data-page="designs">
   <header class="site-header">
-    <a class="brand" href="index.html"><span class="brand-mark">P</span><span>PRDR Command Hub</span></a>
+    <a class="brand" href="index.html">PRDR Command Hub</a>
     <button class="mobile-menu" data-menu-toggle aria-label="Open navigation">☰</button>
     <nav class="nav" data-nav>
       <a href="index.html">Home</a>
@@ -22,18 +22,18 @@
   </header>
 
   <main>
-    <section class="page-hero">
-      <p class="eyebrow">Design examples + exact prompts</p>
-      <h1>Browse UI styles and copy strong prompts to recreate them.</h1>
-      <p>Each design card explains when to use the style, what it should look like, and the exact prompt to give ChatGPT when you want that result.</p>
+    <section class="page-hero small-hero">
+      <p class="eyebrow">Design examples</p>
+      <h1>Design prompts</h1>
+      <p>Browse visual style examples, see what each style should look like, then copy the precise prompt.</p>
     </section>
 
     <section class="section tool-panel">
       <div class="section-heading compact"><div><p class="eyebrow">Prompt generator</p><h2>Create a custom design prompt</h2></div></div>
       <form class="generator-form" data-generator="design">
         <label>Project type<input name="projectType" placeholder="Example: portfolio site, local app, admin dashboard" /></label>
-        <label>Visual style<select name="visualStyle"><option>Dark command dashboard</option><option>Compact link hub</option><option>Clean Apple-style</option><option>Bento grid UI</option><option>Minimal professional</option><option>Soft gradient UI</option></select></label>
-        <label>Color mood<select name="colorMood"><option>Dark navy with blue accents</option><option>Soft neutrals</option><option>Blue and white professional</option><option>Warm modern</option><option>Monochrome minimal</option><option>Colorful but controlled</option></select></label>
+        <label>Visual style<select name="visualStyle"><option>Minimal dark UI</option><option>Dark command dashboard</option><option>Compact link hub</option><option>Clean Apple-style</option><option>Bento grid UI</option><option>Minimal professional</option></select></label>
+        <label>Color mood<select name="colorMood"><option>Dark neutral with blue accents</option><option>Soft neutrals</option><option>Blue and white professional</option><option>Warm modern</option><option>Monochrome minimal</option><option>Colorful but controlled</option></select></label>
         <label>Layout type<select name="layoutType"><option>Compact dashboard grid</option><option>Dashboard card grid</option><option>Landing page sections</option><option>Sidebar app layout</option><option>Bento layout</option><option>Form-heavy utility layout</option></select></label>
         <label>Target user<input name="targetUser" placeholder="Example: me, small business owner, IT staff, general user" /></label>
         <label>Device type<select name="deviceType"><option>Responsive desktop and mobile</option><option>Desktop-first</option><option>Mobile-first</option><option>Tablet-friendly</option></select></label>
@@ -47,7 +47,7 @@
 
     <section class="section">
       <div class="section-heading compact">
-        <div><p class="eyebrow">Browse library</p><h2>Design examples and prompts</h2></div>
+        <div><p class="eyebrow">Browse</p><h2>Examples and prompts</h2></div>
         <input class="search-input" data-search="designCards" placeholder="Search designs..." />
       </div>
       <div class="chip-row" data-filter-group="designCards"></div>
