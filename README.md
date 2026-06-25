@@ -1,55 +1,32 @@
-# PRDR Command Hub
+# PRDR Repo Hub
 
-PRDR Command Hub is a static personal reference website for design prompts, animation references, GUI inspiration, and app/software prompt generation.
+A basic GitHub Pages directory that lists my GitHub repositories and links to each website and source repo.
 
-## Pages
+## Main file
 
-- `index.html` — main dashboard hub
-- `animations.html` — animation prompt library and animation prompt generator
-- `designs.html` — design prompt library and design prompt generator
-- `app-generator.html` — app/software/GUI prompt generator and reference cards
+- `index.html` — the full hub page, including the layout, styles, and script.
 
-## Structure
+## How it works
+
+The page loads public repositories from the GitHub API for `pcdelros`.
+
+For each repo, the **Website** button uses:
+
+1. The repo's saved homepage URL, if one exists in GitHub.
+2. The standard GitHub Pages URL format if no homepage URL is saved:
 
 ```text
-prdr-hub/
-├─ index.html
-├─ animations.html
-├─ designs.html
-├─ app-generator.html
-├─ css/
-│  └─ style.css
-├─ js/
-│  ├─ data.js
-│  └─ main.js
-└─ README.md
+https://pcdelros.github.io/repo-name/
 ```
 
-## How to add more prompt cards
+The **Repo** button links directly to the GitHub repository.
 
-Most prompt cards are stored in `js/data.js`.
+## New website workflow
 
-Add new objects to one of these arrays:
+When a new website repo is created, make sure GitHub Pages is enabled for that repo. The hub will automatically pick up public repos from GitHub when the page loads.
 
-- `animationCards`
-- `designCards`
-- `appCards`
+If a website uses a custom URL, set that URL in the repo's GitHub **Website** field so the hub links to the correct site.
 
-Each card should include:
+## Fallback list
 
-```js
-{
-  title: 'Card Title',
-  category: 'Category Name',
-  bestFor: 'What this is best used for',
-  prompt: 'The copy-ready prompt text.'
-}
-```
-
-## GitHub Pages
-
-This site is ready for GitHub Pages. In GitHub, go to:
-
-Settings → Pages → Build and deployment → Source → Deploy from a branch → `main` → `/root`
-
-Then save the setting.
+`index.html` also includes a small fallback repo list. This is only used if GitHub cannot be reached from the browser.
