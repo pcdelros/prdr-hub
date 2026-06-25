@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design Examples + Prompts | PRDR Command Hub</title>
+  <title>Design Prompts | PRDR Command Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,36 +22,14 @@
   </header>
 
   <main>
-    <section class="page-hero small-hero">
-      <p class="eyebrow">Design examples</p>
-      <h1>Design prompts</h1>
-      <p>Browse visual style examples, see what each style should look like, then copy the precise prompt.</p>
-    </section>
-
-    <section class="section tool-panel">
-      <div class="section-heading compact"><div><p class="eyebrow">Prompt generator</p><h2>Create a custom design prompt</h2></div></div>
-      <form class="generator-form" data-generator="design">
-        <label>Project type<input name="projectType" placeholder="Example: portfolio site, local app, admin dashboard" /></label>
-        <label>Visual style<select name="visualStyle"><option>Minimal dark UI</option><option>Dark command dashboard</option><option>Compact link hub</option><option>Clean Apple-style</option><option>Bento grid UI</option><option>Minimal professional</option></select></label>
-        <label>Color mood<select name="colorMood"><option>Dark neutral with blue accents</option><option>Soft neutrals</option><option>Blue and white professional</option><option>Warm modern</option><option>Monochrome minimal</option><option>Colorful but controlled</option></select></label>
-        <label>Layout type<select name="layoutType"><option>Compact dashboard grid</option><option>Dashboard card grid</option><option>Landing page sections</option><option>Sidebar app layout</option><option>Bento layout</option><option>Form-heavy utility layout</option></select></label>
-        <label>Target user<input name="targetUser" placeholder="Example: me, small business owner, IT staff, general user" /></label>
-        <label>Device type<select name="deviceType"><option>Responsive desktop and mobile</option><option>Desktop-first</option><option>Mobile-first</option><option>Tablet-friendly</option></select></label>
-        <label class="full">Must-have UI elements<textarea name="elements" placeholder="Cards, search bar, filters, buttons, modals, tables..."></textarea></label>
-        <label class="full">Avoid<textarea name="avoid" placeholder="Overlapping elements, clutter, tiny text..."></textarea></label>
-        <div class="form-actions full"><button class="button primary" type="submit">Generate Prompt</button><button class="button secondary" type="button" data-clear>Clear</button></div>
-      </form>
-      <div class="output-box" data-output>Fill out the fields and generate a prompt.</div>
-      <button class="button copy-output" data-copy-output type="button">Copy Generated Prompt</button>
+    <section class="page-title-row">
+      <h1>Design Prompt Library</h1>
+      <input class="search-input compact-search" data-search="designCards" placeholder="Search designs..." />
     </section>
 
     <section class="section">
-      <div class="section-heading compact">
-        <div><p class="eyebrow">Browse</p><h2>Examples and prompts</h2></div>
-        <input class="search-input" data-search="designCards" placeholder="Search designs..." />
-      </div>
       <div class="chip-row" data-filter-group="designCards"></div>
-      <div class="prompt-grid" data-card-grid="designCards"></div>
+      <div class="prompt-grid reference-grid" data-card-grid="designCards"></div>
     </section>
   </main>
 
