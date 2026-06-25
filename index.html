@@ -3,18 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
   <title>PRDR Repo Hub</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f6f7fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #2563eb;
-      --accent-dark: #1d4ed8;
-      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --bg: #f4f5f7;
+      --surface: #ffffff;
+      --surface-soft: #f9fafb;
+      --text: #111827;
+      --muted: #687385;
+      --border: #d9dee7;
+      --button: #111827;
+      --button-text: #ffffff;
+      --button-hover: #000000;
+      --shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      --focus: 0 0 0 4px rgba(17, 24, 39, 0.12);
+    }
+
+    html[data-theme="dark"] {
+      --bg: #0d1117;
+      --surface: #151b23;
+      --surface-soft: #10161f;
+      --text: #f0f3f6;
+      --muted: #9aa6b2;
+      --border: #303946;
+      --button: #f0f3f6;
+      --button-text: #0d1117;
+      --button-hover: #ffffff;
+      --shadow: none;
+      --focus: 0 0 0 4px rgba(240, 243, 246, 0.14);
     }
 
     * {
@@ -22,6 +40,7 @@
     }
 
     body {
+      min-height: 100vh;
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
@@ -30,126 +49,105 @@
     }
 
     .page {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 48px 0;
-    }
-
-    header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 28px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height: 1.05;
-      letter-spacing: -0.05em;
-    }
-
-    .intro {
-      margin: 0;
-      color: var(--muted);
-      max-width: 680px;
-      font-size: 1rem;
-    }
-
-    .summary {
-      min-width: 160px;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: var(--card);
-      box-shadow: var(--shadow);
-      text-align: right;
-    }
-
-    .summary strong {
-      display: block;
-      font-size: 1.55rem;
-    }
-
-    .summary span {
-      color: var(--muted);
-      font-size: 0.9rem;
+      padding: 28px 0;
     }
 
     .toolbar {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) minmax(190px, 260px) auto;
+      gap: 12px;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
-    .search {
-      width: min(100%, 420px);
-      padding: 13px 15px;
+    .control,
+    .theme-button {
+      min-height: 44px;
       border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #fff;
+      border-radius: 12px;
+      background: var(--surface);
       color: var(--text);
       font: inherit;
       outline: none;
     }
 
-    .search:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    .control {
+      width: 100%;
+      padding: 0 14px;
+    }
+
+    .control:focus,
+    .theme-button:focus-visible,
+    .button:focus-visible {
+      box-shadow: var(--focus);
+    }
+
+    .theme-button {
+      padding: 0 15px;
+      cursor: pointer;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .theme-button:hover {
+      border-color: var(--muted);
     }
 
     .status {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
       color: var(--muted);
-      font-size: 0.95rem;
-      text-align: right;
+      font-size: 0.92rem;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
     .card {
       display: flex;
       flex-direction: column;
-      min-height: 190px;
-      padding: 20px;
+      min-height: 182px;
+      padding: 18px;
       border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--card);
+      border-radius: 16px;
+      background: var(--surface);
       box-shadow: var(--shadow);
     }
 
-    .card h2 {
+    .repo-name {
       margin: 0 0 8px;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
+      line-height: 1.3;
       word-break: break-word;
     }
 
-    .card p {
-      margin: 0 0 16px;
+    .description {
+      margin: 0 0 14px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
-    .badges {
+    .meta {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
     .badge {
       padding: 4px 9px;
       border: 1px solid var(--border);
       border-radius: 999px;
+      background: var(--surface-soft);
       color: var(--muted);
       font-size: 0.78rem;
-      background: #f9fafb;
     }
 
     .actions {
@@ -164,11 +162,11 @@
       align-items: center;
       justify-content: center;
       min-height: 40px;
-      padding: 10px 13px;
-      border-radius: 12px;
+      padding: 9px 13px;
+      border-radius: 11px;
       font-weight: 700;
       text-decoration: none;
-      transition: transform 0.15s ease, background 0.15s ease;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
     }
 
     .button:hover {
@@ -176,91 +174,82 @@
     }
 
     .primary {
-      background: var(--accent);
-      color: #fff;
+      background: var(--button);
+      color: var(--button-text);
     }
 
     .primary:hover {
-      background: var(--accent-dark);
+      background: var(--button-hover);
     }
 
     .secondary {
       border: 1px solid var(--border);
+      background: var(--surface);
       color: var(--text);
-      background: #fff;
     }
 
-    .note {
-      margin-top: 28px;
-      padding: 16px 18px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: #fff;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .secondary:hover {
+      border-color: var(--muted);
     }
 
-    footer {
-      margin-top: 28px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      text-align: center;
+    .empty {
+      grid-column: 1 / -1;
+      min-height: auto;
     }
 
-    @media (max-width: 700px) {
+    @media (prefers-reduced-motion: reduce) {
+      .button {
+        transition: none;
+      }
+
+      .button:hover {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 760px) {
       .page {
-        width: min(100% - 24px, 1120px);
-        padding: 32px 0;
+        width: min(100% - 24px, 1180px);
+        padding: 18px 0;
       }
 
-      header,
       .toolbar {
-        align-items: stretch;
-        flex-direction: column;
+        grid-template-columns: 1fr;
       }
 
-      .summary,
       .status {
-        text-align: left;
-      }
-
-      .search {
-        width: 100%;
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
   <main class="page">
-    <header>
-      <div>
-        <h1>PRDR Repo Hub</h1>
-        <p class="intro">A simple directory of my GitHub repositories with quick links to each website and source repo.</p>
-      </div>
-      <div class="summary" aria-live="polite">
-        <strong id="repoCount">0</strong>
-        <span>repos listed</span>
-      </div>
-    </header>
+    <section class="toolbar" aria-label="Repository controls">
+      <input id="searchInput" class="control" type="search" placeholder="Search repositories" aria-label="Search repositories" />
+      <select id="sortSelect" class="control" aria-label="Sort repositories">
+        <option value="updated-desc">Newest updated</option>
+        <option value="updated-asc">Oldest updated</option>
+        <option value="created-desc">Newest created</option>
+        <option value="created-asc">Oldest created</option>
+        <option value="name-asc">Name A to Z</option>
+        <option value="name-desc">Name Z to A</option>
+      </select>
+      <button id="themeButton" class="theme-button" type="button" aria-label="Toggle dark mode">Dark mode</button>
+    </section>
 
-    <section class="toolbar" aria-label="Repository tools">
-      <input id="searchInput" class="search" type="search" placeholder="Search repos..." aria-label="Search repositories" />
-      <div id="status" class="status">Loading repositories...</div>
+    <section class="status" aria-live="polite">
+      <span id="statusText">Loading repositories...</span>
+      <span id="sourceText"></span>
     </section>
 
     <section id="repoGrid" class="grid" aria-label="Repository list"></section>
-
-    <section class="note">
-      New public repositories are loaded from GitHub automatically. Website buttons use the repo's saved homepage URL when one exists; otherwise, they use the standard GitHub Pages link format.
-    </section>
-
-    <footer>
-      Last browser refresh: <span id="refreshTime"></span>
-    </footer>
   </main>
 
   <script>
     const OWNER = "pcdelros";
+    const THEME_KEY = "prdr-hub-theme";
+    const SORT_KEY = "prdr-hub-sort";
 
     const FALLBACK_REPOS = [
       { name: "test", full_name: "pcdelros/test", description: "test", html_url: "https://github.com/pcdelros/test" },
@@ -282,11 +271,31 @@
     ];
 
     const repoGrid = document.getElementById("repoGrid");
-    const repoCount = document.getElementById("repoCount");
-    const statusText = document.getElementById("status");
     const searchInput = document.getElementById("searchInput");
-    const refreshTime = document.getElementById("refreshTime");
+    const sortSelect = document.getElementById("sortSelect");
+    const themeButton = document.getElementById("themeButton");
+    const statusText = document.getElementById("statusText");
+    const sourceText = document.getElementById("sourceText");
+
     let repos = [];
+    let loadedFromGitHub = false;
+
+    function getPreferredTheme() {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+
+      if (savedTheme === "light" || savedTheme === "dark") {
+        return savedTheme;
+      }
+
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem(THEME_KEY, theme);
+      themeButton.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+      themeButton.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    }
 
     function getWebsiteUrl(repo) {
       const homepage = repo.homepage && repo.homepage.trim();
@@ -302,66 +311,130 @@
       return `https://${OWNER}.github.io/${repo.name}/`;
     }
 
-    function formatDate(value) {
-      if (!value) return "Public repo";
+    function getDateTime(value) {
+      const date = value ? new Date(value) : null;
+      return date && !Number.isNaN(date.getTime()) ? date.getTime() : 0;
+    }
 
-      return new Intl.DateTimeFormat(undefined, {
+    function formatDate(value) {
+      const date = value ? new Date(value) : null;
+
+      if (!date || Number.isNaN(date.getTime())) {
+        return "Saved repo";
+      }
+
+      return `Updated ${new Intl.DateTimeFormat(undefined, {
         month: "short",
         day: "numeric",
         year: "numeric"
-      }).format(new Date(value));
+      }).format(date)}`;
     }
 
-    function renderRepos(list) {
-      repoGrid.innerHTML = "";
-      repoCount.textContent = list.length;
+    function sortRepos(list) {
+      const sortValue = sortSelect.value;
+      const sorted = [...list];
 
-      if (!list.length) {
-        repoGrid.innerHTML = `<article class="card"><h2>No matching repos</h2><p>Try a different search term.</p></article>`;
+      sorted.sort((a, b) => {
+        if (sortValue === "updated-desc") return getDateTime(b.updated_at) - getDateTime(a.updated_at);
+        if (sortValue === "updated-asc") return getDateTime(a.updated_at) - getDateTime(b.updated_at);
+        if (sortValue === "created-desc") return getDateTime(b.created_at) - getDateTime(a.created_at);
+        if (sortValue === "created-asc") return getDateTime(a.created_at) - getDateTime(b.created_at);
+        if (sortValue === "name-desc") return b.name.localeCompare(a.name);
+        return a.name.localeCompare(b.name);
+      });
+
+      return sorted;
+    }
+
+    function createBadge(text) {
+      const badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = text;
+      return badge;
+    }
+
+    function createRepoCard(repo) {
+      const card = document.createElement("article");
+      card.className = "card";
+
+      const name = document.createElement("h2");
+      name.className = "repo-name";
+      name.textContent = repo.name;
+
+      const description = document.createElement("p");
+      description.className = "description";
+      description.textContent = repo.description || "No description added yet.";
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      meta.appendChild(createBadge(formatDate(repo.updated_at)));
+
+      if (repo.archived) meta.appendChild(createBadge("Archived"));
+      if (repo.fork) meta.appendChild(createBadge("Fork"));
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+
+      const website = document.createElement("a");
+      website.className = "button primary";
+      website.href = getWebsiteUrl(repo);
+      website.target = "_blank";
+      website.rel = "noopener noreferrer";
+      website.textContent = "Website";
+
+      const source = document.createElement("a");
+      source.className = "button secondary";
+      source.href = repo.html_url || `https://github.com/${OWNER}/${repo.name}`;
+      source.target = "_blank";
+      source.rel = "noopener noreferrer";
+      source.textContent = "Repo";
+
+      actions.append(website, source);
+      card.append(name, description, meta, actions);
+
+      return card;
+    }
+
+    function renderRepos() {
+      const query = searchInput.value.trim().toLowerCase();
+      const filtered = repos.filter((repo) => {
+        const searchableText = `${repo.name} ${repo.description || ""}`.toLowerCase();
+        return searchableText.includes(query);
+      });
+      const sorted = sortRepos(filtered);
+
+      repoGrid.innerHTML = "";
+
+      if (!sorted.length) {
+        const empty = document.createElement("article");
+        empty.className = "card empty";
+
+        const title = document.createElement("h2");
+        title.className = "repo-name";
+        title.textContent = "No matching repositories";
+
+        const text = document.createElement("p");
+        text.className = "description";
+        text.textContent = "Try a different search term or clear the search box.";
+
+        empty.append(title, text);
+        repoGrid.appendChild(empty);
         statusText.textContent = "No matches found.";
         return;
       }
 
       const fragment = document.createDocumentFragment();
-
-      list.forEach((repo) => {
-        const websiteUrl = getWebsiteUrl(repo);
-        const sourceUrl = repo.html_url || `https://github.com/${OWNER}/${repo.name}`;
-        const description = repo.description || "No description added yet.";
-        const card = document.createElement("article");
-        card.className = "card";
-        card.innerHTML = `
-          <h2>${repo.name}</h2>
-          <p>${description}</p>
-          <div class="badges">
-            <span class="badge">${formatDate(repo.updated_at)}</span>
-            ${repo.archived ? '<span class="badge">Archived</span>' : ''}
-            ${repo.fork ? '<span class="badge">Fork</span>' : ''}
-          </div>
-          <div class="actions">
-            <a class="button primary" href="${websiteUrl}" target="_blank" rel="noopener noreferrer">Website</a>
-            <a class="button secondary" href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Repo</a>
-          </div>
-        `;
-        fragment.appendChild(card);
-      });
-
+      sorted.forEach((repo) => fragment.appendChild(createRepoCard(repo)));
       repoGrid.appendChild(fragment);
-      statusText.textContent = `${list.length} repos shown.`;
-    }
 
-    function filterRepos() {
-      const query = searchInput.value.trim().toLowerCase();
-      const filtered = repos.filter((repo) => {
-        const haystack = `${repo.name} ${repo.description || ""}`.toLowerCase();
-        return haystack.includes(query);
-      });
-
-      renderRepos(filtered);
+      const repoLabel = sorted.length === 1 ? "repo" : "repos";
+      statusText.textContent = `${sorted.length} ${repoLabel} shown`;
+      sourceText.textContent = loadedFromGitHub ? "Loaded from GitHub" : "Using saved fallback list";
     }
 
     async function loadRepos() {
-      refreshTime.textContent = new Date().toLocaleString();
+      const savedSort = localStorage.getItem(SORT_KEY);
+      if (savedSort) sortSelect.value = savedSort;
 
       try {
         const response = await fetch(`https://api.github.com/users/${OWNER}/repos?per_page=100&sort=updated`, {
@@ -373,17 +446,26 @@
         }
 
         repos = await response.json();
-        statusText.textContent = "Repos loaded from GitHub.";
+        loadedFromGitHub = true;
       } catch (error) {
         repos = FALLBACK_REPOS;
-        statusText.textContent = "Showing saved repo list because GitHub could not be reached.";
+        loadedFromGitHub = false;
       }
 
-      repos.sort((a, b) => a.name.localeCompare(b.name));
-      renderRepos(repos);
+      renderRepos();
     }
 
-    searchInput.addEventListener("input", filterRepos);
+    searchInput.addEventListener("input", renderRepos);
+    sortSelect.addEventListener("change", () => {
+      localStorage.setItem(SORT_KEY, sortSelect.value);
+      renderRepos();
+    });
+    themeButton.addEventListener("click", () => {
+      const currentTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+      setTheme(currentTheme === "dark" ? "light" : "dark");
+    });
+
+    setTheme(getPreferredTheme());
     loadRepos();
   </script>
 </body>
