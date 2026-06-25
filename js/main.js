@@ -94,6 +94,107 @@ function field(form, name, fallback = '') {
   return form.elements[name]?.value?.trim() || fallback;
 }
 
+function buildReferenceAppPrompt(form) {
+  return `Create a complete downloadable local application, program, script, or GUI for this idea:
+
+${field(form, 'idea', '[APP IDEA]')}
+
+What I want it to do:
+${field(form, 'tasks', '[Main tasks and features should be interpreted from my idea and kept focused on the main goal.]')}
+
+Who will use it:
+${field(form, 'users', 'Me')}
+
+Preferred app type:
+${field(form, 'appType', 'Let ChatGPT choose the best approach')}
+
+Style or design direction:
+${field(form, 'style', 'Use a clean, minimal, modern, polished interface. Keep the design practical, readable, stable, and easy to use.')}
+
+Files, folders, websites, formats, or systems it should work with:
+${field(form, 'systems', 'None specified. Decide what is needed based on the idea.')}
+
+Performance concern:
+${field(form, 'performance', 'Normal app')}
+
+Customization preference:
+${field(form, 'customization', 'Use customization only where it makes sense')}
+
+Developer menu preference:
+${field(form, 'devMenu', 'Include only if useful')}
+
+Launcher preference:
+${field(form, 'launcher', 'Use the safest best launcher')}
+
+Avoid:
+${field(form, 'avoid', 'Avoid bloat, confusing wording, overlapping UI, fixed layouts that break when resized, unnecessary hidden background behavior, and forcing batch files when another approach is better.')}
+
+Build standard to apply automatically:
+
+Before creating files, interpret my idea and choose the best practical way to build it. Choose the right technology, layout, file structure, launcher, and user experience based on what the app is supposed to do. Do not make the app bloated. Keep the first version stable, clean, and focused.
+
+Create the actual runnable files. Do not give copy-and-paste code only. Provide the complete files needed to run the app, clearly named and organized so I can easily tell which file to launch. Use the best development approach for the app idea. Do not force batch files unless they are the best fit or useful as optional launchers.
+
+Layout stability requirements:
+- No UI element should overlap, clip, trail off-screen, become hidden behind another element, or become unreadable.
+- Use responsive containers, panels, rows, columns, grids, flex layouts, or scrollable sections instead of fixed absolute positioning whenever possible.
+- Leave consistent spacing between buttons, labels, inputs, cards, menus, tabs, sidebars, and panels.
+- Long text should wrap, truncate cleanly, or sit inside a scrollable area.
+- Large option sections should scroll vertically instead of expanding sideways.
+- The window should support resizing and reflow cleanly at small, medium, and large sizes.
+- Review the UI for overlap, clipping, off-screen content, unreadable text, and resizing problems before final delivery.
+
+Design requirements:
+- Use a modern, clean, polished, professional interface.
+- Keep spacing, padding, fonts, colors, shadows, borders, and animations consistent.
+- Keep the app lightweight and efficient.
+- If anything loads, scans, processes, imports, exports, or takes time, show a progress bar, loading indicator, status message, or activity feedback.
+- Make all buttons, labels, menus, and controls easy to understand.
+- Avoid technical jargon in the user-facing interface.
+- If custom icons are used, include an icons folder that can read SVG files and has safe fallback icons.
+
+Customization and developer tools:
+- Include a config or theme file only if it makes sense for the app.
+- If customization is included, make it user-friendly and avoid requiring code edits.
+- If a developer menu is useful, keep it hidden from the normal interface and open it only with Ctrl + Shift + D.
+- Developer tools may include logs, diagnostics, performance information, reset options, theme tools, and exportable debug reports.
+
+Launch and security:
+- Include a clearly named normal launcher when useful.
+- Include a separate debug launcher when useful.
+- Avoid suspicious hidden scripts, unnecessary background behavior, or launch methods that could trigger security tools.
+- If a launch method may be flagged, explain why and provide a safer alternative.
+
+Performance and error handling:
+- Use background processing for slow tasks.
+- Avoid loading everything at once if the app may handle many files or items.
+- Use batching, lazy loading, caching, thumbnails, pagination, or virtualized lists/grids when appropriate.
+- Prevent freezing or “not responding” behavior during heavy tasks.
+- Handle missing files, permission issues, unsupported formats, failed saves, failed imports/exports, missing dependencies, corrupt config files, and network problems with clear polite messages.
+
+File organization:
+Use a clear folder structure similar to this when appropriate:
+App Name/
+- Start App
+- Start App - Debug
+- README / Instructions
+- app/
+- assets/icons/
+- assets/images/
+- config/
+- logs/
+- backups/
+
+README requirements:
+Include simple instructions explaining which file to launch, how to use the app, how to open developer tools if included, how to customize/reset if included, how to run debug mode, what each folder is for, and any requirements needed.
+
+Quality check before final delivery:
+Before sending the final answer, check that the app launches, files are organized, the normal launcher is clear, the debug option works if included, the interface does not overlap or break when resized, long text behaves properly, loading states are clear, and the final package is easy to download, extract, and run.
+
+Final delivery:
+Provide a downloadable folder or archive, a clearly named launch file, simple run instructions, important file/folder explanations, requirements, debug option notes, and any limitations I should know.`;
+}
+
 function initGenerators() {
   $$('[data-generator]').forEach(form => {
     const output = $('[data-output]', form.closest('.tool-panel'));
@@ -103,6 +204,8 @@ function initGenerators() {
       event.preventDefault();
       const type = form.dataset.generator;
       let prompt = '';
+
+      if (type === 'referenceApp') prompt = buildReferenceAppPrompt(form);
 
       if (type === 'animation') {
         prompt = `Create a ${field(form, 'animationType').toLowerCase()} for ${field(form, 'element', 'the selected UI element')}. Use a ${field(form, 'style').toLowerCase()} style. The motion should feel ${field(form, 'speed').toLowerCase()} with a ${field(form, 'intensity').toLowerCase()} level of visual intensity. The purpose is to ${field(form, 'purpose', 'improve usability and make the interface feel more responsive')}. Keep the animation smooth, lightweight, accessible, and professional. Avoid layout shifts, overlapping elements, or distracting movement.${field(form, 'notes') ? ` Extra notes: ${field(form, 'notes')}` : ''}`;
@@ -136,13 +239,13 @@ Before creating files, first write a short implementation spec that includes: ma
 Extra notes: ${field(form, 'notes')}` : ''}`;
       }
 
-      output.textContent = prompt;
+      if (output) output.textContent = prompt;
     });
 
     $$('[data-clear]', form).forEach(button => {
       button.addEventListener('click', () => {
         form.reset();
-        if (output) output.textContent = 'Fill out the fields and generate a prompt.';
+        if (output) output.textContent = output.classList.contains('tall') ? 'Generated app prompt will appear here.' : 'Fill out the fields and generate a prompt.';
       });
     });
 
@@ -159,31 +262,6 @@ function initHomeTools() {
       $$('.quick-link', linkContainer).forEach(link => link.style.display = link.textContent.toLowerCase().includes(query) ? 'grid' : 'none');
     });
   }
-
-  $$('[data-local-note]').forEach(area => {
-    const key = `prdr-${area.dataset.localNote}`;
-    area.value = localStorage.getItem(key) || '';
-    area.addEventListener('input', () => localStorage.setItem(key, area.value));
-  });
-
-  const homeForm = $('[data-home-prompt-form]');
-  const homeOutput = $('[data-home-prompt-output]');
-  if (homeForm && homeOutput) {
-    homeForm.addEventListener('submit', event => {
-      event.preventDefault();
-      const thing = field(homeForm, 'thing', 'a digital project');
-      const style = field(homeForm, 'style', 'clean, modern, and practical');
-      const details = field(homeForm, 'details', 'clear layout, useful sections, polished UI, responsive behavior, and no overlapping elements');
-      homeOutput.textContent = `Create ${thing}. Use a ${style} style. Include ${details}. Make it organized, polished, easy to use, and responsive. Use strong spacing, clear labels, practical controls, and smooth interactions. Avoid clutter, overlapping elements, weak visual hierarchy, and confusing wording. Before building, provide a short implementation plan, then create the actual files or exact prompt/output needed.`;
-    });
-  }
-
-  const copyHome = $('[data-copy-home-output]');
-  if (copyHome && homeOutput) copyHome.addEventListener('click', () => copyText(homeOutput.textContent));
-
-  const basePrompt = $('[data-base-app-prompt]');
-  const copyBase = $('[data-copy-base-app-prompt]');
-  if (basePrompt && copyBase) copyBase.addEventListener('click', () => copyText(basePrompt.textContent));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
