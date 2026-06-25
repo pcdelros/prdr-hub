@@ -1,0 +1,56 @@
+PRDR Command Hub - Future Expansion Ideas
+
+Keep future ideas here so the homepage stays compact.
+
+Future reference pages:
+- IT Tool References
+- Webflow Client Project Prompts
+- Logo and Brand Prompt Library
+- Website Section Generator
+- GitHub and Coding Workflow Prompts
+- PHX WebSpace Assets
+- Troubleshooting Prompt Library
+- Ticket Response Library
+- Email Polish Library
+- Client Website Intake Generator
+- App UI Pattern Library
+- Local App Build Checklist
+- Design System Notes
+- Animation Preview Gallery
+- Favorite Tools and Resources
+
+Future homepage tools:
+- Search across all reference pages
+- Favorite prompt cards
+- Recent copied prompts
+- Saved custom prompts
+- Export and import prompt data
+- Add-new-card helper form
+- Prompt quality checklist
+- Website project starter checklist
+- App idea scope checker
+
+Future generator improvements:
+- Desktop app generator
+- Web app generator
+- Internal IT tool generator
+- Performance risk builder
+- Error-state builder
+- README generator
+- Launcher recommendation helper
+- UI layout rules generator
+
+Future design improvements:
+- Visual preview cards
+- Color palette examples
+- Typography examples
+- Layout wireframe examples
+- Webflow-specific prompt cards
+
+Future animation improvements:
+- Live CSS animation demos
+- Animation speed examples
+- Microinteraction examples
+- Loading state examples
+- Page transition examples
+- Motion accessibility notes
