@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body data-page="home">
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="PRDR Command Hub home">
       <span class="brand-mark">P</span>
@@ -25,72 +25,63 @@
   </header>
 
   <main>
-    <section class="hero dashboard-hero">
-      <div class="eyebrow">Personal reference dashboard</div>
-      <h1>Your centralized workspace for design prompts, animation references, GUI inspiration, and app-building ideas.</h1>
-      <p>Use this hub to quickly open prompt libraries, generate stronger requests, and keep adding pages as your workflow grows.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="animations.html">Open Animation Library</a>
-        <a class="button secondary" href="app-generator.html">Build an App Prompt</a>
+    <section class="section home-top">
+      <div class="compact-title-card">
+        <p class="eyebrow">Private workspace</p>
+        <h1>Command Center</h1>
+        <p>Quick links, prompt tools, and notes for building websites, apps, GUI ideas, and reference libraries.</p>
+      </div>
+
+      <div class="status-card">
+        <span class="status-label">Today’s focus</span>
+        <textarea data-local-note="todayFocus" placeholder="Add what you want to build, research, or improve today..."></textarea>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-heading">
+      <div class="section-heading compact">
         <div>
-          <p class="eyebrow">Main tools</p>
-          <h2>Reference pages</h2>
+          <p class="eyebrow">Quick access</p>
+          <h2>Reference links</h2>
         </div>
-        <p>Start with the pages below. Each page is built so more cards, categories, and prompt builders can be added later.</p>
+        <input class="search-input compact-search" data-home-link-search placeholder="Filter links..." />
       </div>
 
-      <div class="card-grid three">
-        <article class="feature-card">
-          <span class="card-icon">↗</span>
-          <h3>Animation Prompt Library</h3>
-          <p>Web, app, and GUI animation ideas with copy-ready prompts for hover states, transitions, loaders, menus, cards, and microinteractions.</p>
-          <a class="card-link" href="animations.html">Open animations</a>
-        </article>
-
-        <article class="feature-card">
-          <span class="card-icon">□</span>
-          <h3>Design Prompt Library</h3>
-          <p>Professional UI styles, visual themes, layout systems, and polished design prompts for websites, apps, dashboards, and creative tools.</p>
-          <a class="card-link" href="designs.html">Open designs</a>
-        </article>
-
-        <article class="feature-card">
-          <span class="card-icon">✦</span>
-          <h3>App / GUI Generator</h3>
-          <p>A guided prompt builder for local apps, web apps, GUI utilities, internal IT tools, dashboards, and software concepts.</p>
-          <a class="card-link" href="app-generator.html">Open generator</a>
-        </article>
+      <div class="compact-link-grid" data-home-links>
+        <a class="quick-link" href="animations.html"><span>🎞️</span><strong>Animations</strong><small>Examples + prompts</small></a>
+        <a class="quick-link" href="designs.html"><span>🎨</span><strong>Designs</strong><small>Styles + prompts</small></a>
+        <a class="quick-link" href="app-generator.html"><span>🧰</span><strong>App Generator</strong><small>Build prompt tool</small></a>
+        <a class="quick-link muted-link" href="future-expansion-ideas.txt"><span>🗂️</span><strong>Future Ideas</strong><small>Text list</small></a>
       </div>
     </section>
 
-    <section class="section split-section">
-      <div class="panel soft-panel">
-        <p class="eyebrow">Recommended workflow</p>
-        <h2>How to use this hub</h2>
-        <ol class="steps">
-          <li>Pick a reference page based on what you are creating.</li>
-          <li>Search or filter the prompt cards.</li>
-          <li>Copy a prompt, or use the guided generator.</li>
-          <li>Paste the final prompt into ChatGPT when you want a build, design, or code plan.</li>
-        </ol>
-      </div>
-      <div class="panel roadmap-panel">
-        <p class="eyebrow">Future expansion</p>
-        <h2>Pages to add later</h2>
-        <div class="tag-list">
-          <span>IT Tool References</span>
-          <span>Webflow Client Prompts</span>
-          <span>Logo / Brand Library</span>
-          <span>Website Section Generator</span>
-          <span>GitHub Workflow Prompts</span>
-          <span>PHX WebSpace Assets</span>
-        </div>
-      </div>
+    <section class="section tool-grid">
+      <article class="tool-card">
+        <p class="eyebrow">Fast tool</p>
+        <h2>Quick prompt starter</h2>
+        <form class="mini-form" data-home-prompt-form>
+          <label>What are you making?<input name="thing" placeholder="Example: a Webflow client homepage, GUI tool, app page" /></label>
+          <label>What style?<input name="style" placeholder="Example: dark modern dashboard, Apple-style, professional clean" /></label>
+          <label>What should it include?<textarea name="details" placeholder="Main sections, features, layout, buttons, animations, or behavior..."></textarea></label>
+          <button class="button primary" type="submit">Generate Starter Prompt</button>
+        </form>
+        <div class="output-box" data-home-prompt-output>Generated prompt will appear here.</div>
+        <button class="button secondary small" data-copy-home-output type="button">Copy Prompt</button>
+      </article>
+
+      <article class="tool-card">
+        <p class="eyebrow">Saved locally</p>
+        <h2>Scratchpad</h2>
+        <textarea class="scratchpad" data-local-note="scratchpad" placeholder="Save rough ideas, page names, links to add, or prompt notes here. This saves in this browser only."></textarea>
+      </article>
+
+      <article class="tool-card">
+        <p class="eyebrow">Copy base prompt</p>
+        <h2>My app build rules</h2>
+        <p class="muted">Use this when you want ChatGPT to create a complete app without overlapping UI, weak launch instructions, or missing progress states.</p>
+        <div class="output-box small-output" data-base-app-prompt>Create a complete downloadable local application for this idea: [APP IDEA]. Before creating files, first write a short implementation spec that includes main user goal, core features, non-goals, recommended technology choice, file/folder structure, performance risks, error states, and user acceptance checklist. Then create the actual runnable files. Do not give copy-and-paste code only. Use the best development approach for the app idea. Do not force batch files unless they are the best option or useful as optional launchers. Include clear loading/progress indicators, friendly error handling, a normal launcher when useful, a debug launcher when useful, and a README written for a non-developer. Make the interface clean, modern, polished, evenly spaced, responsive, and easy to use. Avoid overlapping elements.</div>
+        <button class="button secondary small" data-copy-base-app-prompt type="button">Copy Base Prompt</button>
+      </article>
     </section>
   </main>
 
