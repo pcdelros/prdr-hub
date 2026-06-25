@@ -1,224 +1,87 @@
 const PRDR_DATA = {
   animationCards: [
-    {
-      title: 'Soft Hover Lift',
-      category: 'Buttons',
-      bestFor: 'Primary buttons, dashboard cards, compact link cards, and call-to-action controls',
-      example: 'A button or card moves up 3-6px on hover, gains a soft shadow, and returns smoothly when the cursor leaves.',
-      prompt: 'Create a subtle hover lift animation for a modern dark dashboard UI. The element should rise 3-6px on hover, gain a soft shadow, slightly brighten the border, and return smoothly when the cursor leaves. Keep the motion quick, polished, and practical. Do not cause layout shift or overlap nearby elements.'
-    },
-    {
-      title: 'Ripple Click Feedback',
-      category: 'Buttons',
-      bestFor: 'Buttons that need clear click confirmation without looking flashy',
-      example: 'When the user clicks a button, a soft circle expands from the click point and fades out quickly.',
-      prompt: 'Create a clean ripple click animation for a button. When clicked, a soft circular ripple should expand from the click point and fade within 350ms. Keep the effect lightweight, professional, and easy to see without looking playful or distracting.'
-    },
-    {
-      title: 'Animated Border Focus',
-      category: 'Buttons',
-      bestFor: 'Important buttons, input fields, search bars, and selected states',
-      example: 'A thin border gently brightens or traces around the element when hovered, focused, or selected.',
-      prompt: 'Create an animated focus border for interactive UI elements. On hover or keyboard focus, the border should smoothly brighten, add a subtle glow, and clearly show the active state. Use accessible contrast and keep the effect restrained, professional, and suitable for a dark interface.'
-    },
-    {
-      title: 'Fade-In Page Load',
-      category: 'Page Transitions',
-      bestFor: 'Reference pages, dashboards, landing pages, and simple static websites',
-      example: 'The page content fades in while moving slightly upward as the page first loads.',
-      prompt: 'Create a smooth page-load animation where the main content fades in from 0 opacity and moves upward 12-18px into place. Keep the duration around 450-650ms, use easing that feels polished, and avoid delaying important content from being usable.'
-    },
-    {
-      title: 'Staggered Card Reveal',
-      category: 'Page Transitions',
-      bestFor: 'Prompt libraries, galleries, dashboards, and grids with many cards',
-      example: 'Cards appear one after another in a clean sequence instead of all at once.',
-      prompt: 'Create a staggered reveal animation for a grid of cards. Each card should fade in and slide up slightly with a 50-90ms delay between cards. Keep the animation smooth and lightweight. The grid should remain responsive and stable with no layout jumping.'
-    },
-    {
-      title: 'Skeleton Loader',
-      category: 'Loading',
-      bestFor: 'Lists, cards, dashboards, media grids, and pages waiting for data',
-      example: 'Temporary gray placeholder bars show where text, thumbnails, and cards will load.',
-      prompt: 'Create a clean skeleton loading state for content cards. Use rounded placeholder blocks for titles, text, thumbnails, and buttons, with a subtle shimmer animation. The loader should match the final layout size so the page does not jump when real content appears.'
-    },
-    {
-      title: 'Progress Bar With Status Text',
-      category: 'Loading',
-      bestFor: 'Apps that scan folders, import files, export data, or process long tasks',
-      example: 'A progress bar shows percentage plus text like “Scanning files...” or “Processing 42 of 300 items.”',
-      prompt: 'Create a user-friendly progress bar with clear status text. Show the current step, percentage progress, and a calm message explaining what is happening. Include a completed state and an error state. Keep the design clean, readable, and reassuring.'
-    },
-    {
-      title: 'Expandable Card',
-      category: 'Cards',
-      bestFor: 'Reference cards, settings panels, prompt details, and compact dashboards',
-      example: 'A compact card expands downward to reveal more details, buttons, or prompt text.',
-      prompt: 'Create an expandable card animation. When opened, the card should smoothly grow downward to reveal more content without jumping, overlapping nearby elements, or losing scroll position. Include a clear collapsed and expanded state with a small chevron rotation.'
-    },
-    {
-      title: 'Image Zoom Card',
-      category: 'Cards',
-      bestFor: 'Portfolio cards, design references, gallery items, and inspiration boards',
-      example: 'The image inside a card zooms slightly while the card itself stays the same size.',
-      prompt: 'Create a card hover animation where the image subtly zooms in inside its container while the card border brightens and the shadow increases slightly. The image must stay clipped inside the card, and the layout must not shift.'
-    },
-    {
-      title: 'Animated Nav Underline',
-      category: 'Navigation',
-      bestFor: 'Top navigation menus, tab bars, and compact dashboards',
-      example: 'A small underline slides under a nav link when hovered and stays visible on the active page.',
-      prompt: 'Create a smooth animated underline for navigation links. On hover, the underline should slide in from the left. On the active page, the underline should remain visible. Keep the animation minimal, readable, and professional.'
-    },
-    {
-      title: 'Sidebar Reveal',
-      category: 'Navigation',
-      bestFor: 'App dashboards, mobile menus, admin panels, and settings-heavy tools',
-      example: 'A sidebar slides in from the left, the background dims, and a close button is clearly visible.',
-      prompt: 'Create a sidebar reveal animation where the panel slides in smoothly from the left, the page background dims slightly, and the first interactive item receives focus. Include clear close behavior, keyboard accessibility, and no content overlap.'
-    },
-    {
-      title: 'Toast Notification',
-      category: 'Microinteractions',
-      bestFor: 'Copy confirmations, saved settings, successful exports, and completed actions',
-      example: 'A small message slides up saying “Copied to clipboard” and fades away after a short delay.',
-      prompt: 'Create a polished toast notification animation. The toast should slide up gently, remain visible long enough to read, then fade out smoothly. It should not block important controls. Use friendly, concise wording and include success, warning, and error states.'
-    },
-    {
-      title: 'Toggle Switch Motion',
-      category: 'Microinteractions',
-      bestFor: 'Settings pages, developer menus, theme toggles, and feature switches',
-      example: 'The switch knob glides left or right and the label clearly changes between on and off.',
-      prompt: 'Create a smooth toggle switch animation with clear on and off states. The knob should glide naturally, the label should update clearly, and the state should be obvious without relying only on color. Keep the control accessible and compact.'
-    },
-    {
-      title: 'Search Result Reveal',
-      category: 'Microinteractions',
-      bestFor: 'Searchable libraries, file browsers, prompt hubs, and dashboards',
-      example: 'Matching items remain visible while non-matching cards fade out or collapse cleanly.',
-      prompt: 'Create a search result reveal animation where matching items fade in cleanly and non-matching items fade or collapse without layout glitches. Keep the interaction fast, responsive, and practical for large card lists.'
-    }
+    { title: 'Soft Hover Lift', category: 'Buttons', bestFor: 'Buttons, compact cards, and primary actions', example: 'The element lifts 3-6px, gains a soft shadow, and returns smoothly.', prompt: 'Create a subtle hover lift animation for a modern app or GUI. On hover, the element should rise 3-6px, slightly brighten its border, and gain a soft shadow. On mouse leave, it should return smoothly. Keep the effect polished, fast, and practical with no layout shift or overlap.' },
+    { title: 'Press Down Click', category: 'Buttons', bestFor: 'Buttons that need tactile feedback', example: 'The button compresses slightly when clicked, then springs back.', prompt: 'Create a tactile button press animation. On mouse down, the button should scale down slightly to 0.97, reduce its shadow, and feel physically pressed. On release, it should return to normal with a smooth 120-180ms transition. Keep it subtle and professional.' },
+    { title: 'Ripple Click', category: 'Buttons', bestFor: 'Clear click confirmation on app controls', example: 'A soft circle expands from the click point and fades out.', prompt: 'Create a clean ripple click animation for a button. When clicked, a soft circular ripple should expand from the click location and fade within 350ms. Keep the ripple clipped inside the button, lightweight, and not distracting.' },
+    { title: 'Animated Border Trace', category: 'Buttons', bestFor: 'Primary call-to-action buttons', example: 'A thin border appears to trace around the button on hover.', prompt: 'Create an animated border trace effect for a button. On hover, a thin accent border should draw around the button from left to right, then remain visible while hovered. Keep the animation smooth, minimal, and suitable for a professional software interface.' },
+    { title: 'Icon Slide Button', category: 'Buttons', bestFor: 'Buttons with arrows or action icons', example: 'The icon slides slightly right while the text stays stable.', prompt: 'Create an icon slide animation for a button. On hover, the icon should move 4-6px to the right while the text stays in place. Keep spacing stable, avoid text shifting, and use a quick polished transition.' },
+    { title: 'Glow Focus Ring', category: 'Buttons', bestFor: 'Keyboard accessibility and selected actions', example: 'A soft glow appears around a focused control.', prompt: 'Create an accessible focus ring animation. When a button, input, or card receives keyboard focus, show a clear soft glow and border highlight. The focus state must be visible, professional, and not rely only on color.' },
+
+    { title: 'Fade In Page Load', category: 'Page Transitions', bestFor: 'Simple app pages and dashboards', example: 'Content fades in and moves up slightly when the page opens.', prompt: 'Create a smooth page-load animation where the main content fades in from 0 opacity and moves upward 12-18px. Use 450-650ms duration with polished easing. Do not delay usability or cause layout jumping.' },
+    { title: 'Slide Up Section Reveal', category: 'Page Transitions', bestFor: 'Sections appearing as the user scrolls', example: 'Each section slides up and fades in as it enters view.', prompt: 'Create a scroll reveal animation for page sections. Each section should fade in and slide up 16px when it enters the viewport. Trigger once, keep the animation subtle, and disable or reduce motion for users who prefer reduced motion.' },
+    { title: 'Staggered Card Reveal', category: 'Page Transitions', bestFor: 'Card grids and libraries', example: 'Cards appear one by one in a clean sequence.', prompt: 'Create a staggered reveal animation for a card grid. Cards should fade in and slide up with a 50-90ms delay between items. Keep the grid layout stable and responsive with no jumping or overlap.' },
+    { title: 'Blur To Clear Entrance', category: 'Page Transitions', bestFor: 'Polished dashboard entrances', example: 'Content begins slightly blurred and sharpens into place.', prompt: 'Create a blur-to-clear entrance animation. The content should start with slight blur and low opacity, then sharpen and fade in smoothly within 500ms. Keep the effect subtle and avoid making text hard to read for too long.' },
+    { title: 'Route Crossfade', category: 'Page Transitions', bestFor: 'Multi-page apps and SPA screens', example: 'The old screen fades out while the new screen fades in.', prompt: 'Create a route transition using a clean crossfade. The outgoing screen should fade out quickly while the incoming screen fades in and moves up slightly. Keep the transition under 400ms and preserve scroll/layout stability.' },
+
+    { title: 'Skeleton Loader', category: 'Loading', bestFor: 'Cards, lists, dashboards, and data loading', example: 'Placeholder shapes shimmer while content is loading.', prompt: 'Create a skeleton loading state that matches the final content layout. Use rounded placeholder blocks for titles, text, thumbnails, and buttons with a subtle shimmer. Prevent layout shift when real content loads.' },
+    { title: 'Linear Progress With Status', category: 'Loading', bestFor: 'Scanning, importing, exporting, and processing', example: 'A progress bar shows percent and current task text.', prompt: 'Create a progress bar with status text for a long-running task. Show percentage, current step, and a short plain-language message. Include loading, success, paused, canceled, and error states. Keep it readable and reassuring.' },
+    { title: 'Circular Spinner Minimal', category: 'Loading', bestFor: 'Short waits under a few seconds', example: 'A small circular spinner rotates beside a label.', prompt: 'Create a minimal circular loading spinner for short waits. Keep it small, smooth, and paired with a short label like “Loading...” so the user knows what is happening. Avoid using it for long tasks where progress is needed.' },
+    { title: 'Step Loader', category: 'Loading', bestFor: 'Multi-step workflows', example: 'Steps show pending, active, complete, and error states.', prompt: 'Create a step-based loader for a multi-step process. Each step should clearly show pending, active, complete, and error states. Use simple labels, smooth transitions, and a layout that does not shift as steps update.' },
+    { title: 'File Scan Progress', category: 'Loading', bestFor: 'Apps scanning large folders or files', example: 'Shows “Scanning 240 of 1,200 files” with progress and cancel option.', prompt: 'Create a file scan progress animation. Show a progress bar, item count, current folder or file name, elapsed state, and a cancel button. Keep the UI responsive and make long names truncate cleanly without breaking layout.' },
+
+    { title: 'Expandable Card', category: 'Cards', bestFor: 'Reference cards, details panels, and settings cards', example: 'A compact card expands downward to show more content.', prompt: 'Create an expandable card animation. When opened, the card should smoothly expand downward to reveal more content without overlapping nearby elements. Include a rotating chevron, stable spacing, and clean collapsed/expanded states.' },
+    { title: '3D Tilt Card', category: 'Cards', bestFor: 'Feature cards and creative dashboards', example: 'The card gently tilts toward the cursor.', prompt: 'Create a subtle 3D tilt card interaction. The card should tilt slightly based on cursor position, with a soft highlight and shadow change. Keep the tilt minimal, disable on touch devices, and avoid making text hard to read.' },
+    { title: 'Image Zoom Card', category: 'Cards', bestFor: 'Galleries, portfolios, and visual references', example: 'The image zooms inside the card while the card stays the same size.', prompt: 'Create a card hover animation where the image subtly zooms inside its container while the card border brightens. Clip the image inside the card, avoid layout shift, and keep text readable.' },
+    { title: 'Flip Card', category: 'Cards', bestFor: 'Simple front/back information cards', example: 'The card flips to reveal the back side.', prompt: 'Create a flip card animation with a front and back side. The card should rotate on the Y-axis smoothly, keep both sides aligned, and avoid mirrored text issues. Include keyboard-accessible toggle behavior.' },
+    { title: 'Card Selection State', category: 'Cards', bestFor: 'Selectable cards in apps and dashboards', example: 'Selected card gets a border, checkmark, and subtle scale.', prompt: 'Create a selected-card animation. When selected, the card should gain a clear accent border, show a small checkmark, and subtly scale or brighten. Make the selected state obvious without relying only on color.' },
+
+    { title: 'Animated Nav Underline', category: 'Navigation', bestFor: 'Top nav links and tabs', example: 'An underline slides under hovered and active nav items.', prompt: 'Create an animated navigation underline. On hover, the underline should slide in smoothly from the left. On the active page, it should remain visible. Keep it minimal, fast, and professional.' },
+    { title: 'Sliding Sidebar', category: 'Navigation', bestFor: 'Dashboards and settings-heavy apps', example: 'A sidebar slides in while the page background dims.', prompt: 'Create a sliding sidebar animation. The sidebar should slide in from the left, the background should dim slightly, and the close action should be clear. Keep focus handling accessible and prevent content behind it from scrolling when open.' },
+    { title: 'Morphing Hamburger Menu', category: 'Navigation', bestFor: 'Mobile menus', example: 'The hamburger icon turns into an X when opened.', prompt: 'Create a morphing hamburger menu animation. The three lines should smoothly transform into an X when opened and return when closed. Keep the icon aligned, not oversized, and easy to tap.' },
+    { title: 'Tab Switch Slide', category: 'Navigation', bestFor: 'Tabbed interfaces and settings panels', example: 'The active tab indicator slides to the selected tab.', prompt: 'Create a tab switch animation where the active indicator smoothly slides to the selected tab and the panel content fades in. Maintain consistent panel height where possible to avoid layout jumping.' },
+    { title: 'Sticky Header Shrink', category: 'Navigation', bestFor: 'Long pages and dashboards', example: 'The header becomes more compact after scrolling.', prompt: 'Create a sticky header shrink animation. When the user scrolls down, the header should reduce padding, slightly darken or blur the background, and stay readable. Keep the transition smooth and avoid covering important content.' },
+
+    { title: 'Toast Notification', category: 'Microinteractions', bestFor: 'Copy, save, export, and success feedback', example: 'A small message slides up, stays briefly, then fades.', prompt: 'Create a toast notification animation. It should slide up gently, stay visible long enough to read, then fade out. Include success, warning, and error styles. Do not block important controls.' },
+    { title: 'Toggle Switch Motion', category: 'Microinteractions', bestFor: 'Settings and preferences', example: 'The toggle knob glides and the state changes clearly.', prompt: 'Create a smooth toggle switch animation. The knob should glide between on/off states, labels should remain readable, and the state should be clear without relying only on color.' },
+    { title: 'Modal Pop In', category: 'Microinteractions', bestFor: 'Dialogs, confirmations, and forms', example: 'The modal fades and scales in while the backdrop appears.', prompt: 'Create a modal entrance animation. The backdrop should fade in, and the modal should scale from 0.96 to 1 while fading in. Keep it under 220ms, focus the first useful control, and support Escape to close.' },
+    { title: 'Accordion Expand', category: 'Microinteractions', bestFor: 'FAQs, grouped settings, and detail panels', example: 'The content expands vertically and the chevron rotates.', prompt: 'Create an accordion expand/collapse animation. The content should smoothly expand vertically, long content should remain readable, and the chevron should rotate. Avoid janky height jumps or content clipping.' },
+    { title: 'Drag And Drop Highlight', category: 'Microinteractions', bestFor: 'Upload zones and file organizers', example: 'The drop zone highlights when a file is dragged over it.', prompt: 'Create a drag-and-drop highlight animation. When an item is dragged over the drop zone, brighten the border, show a subtle background tint, and display a clear drop message. Return to normal when the item leaves.' },
+    { title: 'Search Result Reveal', category: 'Microinteractions', bestFor: 'Searchable libraries and file browsers', example: 'Matching items remain while others fade/collapse cleanly.', prompt: 'Create a search result reveal animation. Matching items should fade in cleanly, and non-matching items should fade or collapse without layout glitches. Keep the interaction fast enough for large lists.' },
+    { title: 'Inline Validation', category: 'Forms', bestFor: 'Forms, settings, and input-heavy apps', example: 'A field shows a check or warning after input.', prompt: 'Create inline validation animations for form fields. Valid fields should show a subtle checkmark and border highlight. Invalid fields should show a clear message with a gentle shake or highlight. Keep the message polite and readable.' },
+    { title: 'Save State Feedback', category: 'Forms', bestFor: 'Settings and editable content', example: 'The save button changes from Saving to Saved.', prompt: 'Create a save-state animation for a form button. The button should show “Saving...”, then “Saved” with a subtle success icon, then return to normal if appropriate. Include an error state with a clear retry option.' },
+    { title: 'Reduced Motion Fallback', category: 'Accessibility', bestFor: 'Any app with motion effects', example: 'Users who prefer reduced motion get fades instead of movement.', prompt: 'Create animation behavior that respects prefers-reduced-motion. If reduced motion is enabled, replace movement-heavy effects with simple fades or instant state changes while preserving usability and feedback.' }
   ],
+
   designCards: [
-    {
-      title: 'Dark Command Dashboard',
-      category: 'Dashboard',
-      bestFor: 'Personal hubs, prompt libraries, internal tools, and productivity dashboards',
-      example: 'Dark background, compact cards, clear navigation, subtle blue accents, search/filter controls, and practical tools on the homepage.',
-      prompt: 'Create a dark command dashboard UI for a personal productivity hub. Use a deep navy/black background, compact rounded cards, subtle borders, soft blue accent colors, clear navigation, searchable link cards, and practical utility sections. Make it feel private, fast, organized, and built for daily use rather than public marketing.'
-    },
-    {
-      title: 'Compact Link Hub',
-      category: 'Layout',
-      bestFor: 'Homepages that will eventually contain many links and reference pages',
-      example: 'Small cards in a dense grid with emoji icons, title, short description, and quick filtering.',
-      prompt: 'Create a compact link hub layout with small clickable cards arranged in a responsive grid. Each card should include a small icon or emoji, a short title, and a one-line description. Include a filter/search bar so many future links remain easy to find. Keep spacing tight but readable.'
-    },
-    {
-      title: 'Clean Apple-Style Interface',
-      category: 'Minimal',
-      bestFor: 'Media apps, portfolio pages, and polished utilities',
-      example: 'Large white space, soft rounded panels, refined typography, minimal controls, and calm visual hierarchy.',
-      prompt: 'Create a clean Apple-inspired interface with generous spacing, simple typography, soft neutral colors, rounded panels, and polished controls. Keep the UI calm, premium, and highly readable. Avoid clutter, heavy borders, and excessive decoration.'
-    },
-    {
-      title: 'Bento Grid Layout',
-      category: 'Layout',
-      bestFor: 'Modern landing pages, feature hubs, and dashboard overview sections',
-      example: 'Cards of different sizes form a visually interesting grid while still staying organized and responsive.',
-      prompt: 'Create a modern bento grid layout with cards of different sizes, strong visual hierarchy, rounded corners, and clear section grouping. Use the layout to highlight the most important content first. Make sure the grid remains responsive and balanced on smaller screens.'
-    },
-    {
-      title: 'Minimal Professional UI',
-      category: 'Minimal',
-      bestFor: 'Business tools, forms, documentation sites, and client-facing pages',
-      example: 'Simple borders, readable typography, strong spacing, restrained color, and no unnecessary effects.',
-      prompt: 'Create a minimal professional UI with crisp typography, simple borders, restrained colors, and strong spacing. Prioritize readability, clarity, and practical usability over decoration. Make every button, form field, and section label easy to understand.'
-    },
-    {
-      title: 'Soft Gradient UI',
-      category: 'Visual Style',
-      bestFor: 'Friendly websites, creative tools, personal dashboards, and lightweight apps',
-      example: 'Gentle gradients sit behind clean cards, giving the page personality without hurting readability.',
-      prompt: 'Create a soft gradient UI with gentle background gradients, clean cards, subtle shadows, and readable buttons. Keep the colors controlled and professional so the design feels friendly without becoming distracting. Maintain strong contrast and clear spacing.'
-    },
-    {
-      title: 'Form-Heavy Utility Layout',
-      category: 'Layout',
-      bestFor: 'Prompt generators, settings tools, admin utilities, and app builders',
-      example: 'Grouped fields, clear labels, helpful placeholders, vertical flow, and a large generated output box.',
-      prompt: 'Create a form-heavy utility interface that is easy to fill out. Use grouped fields, clear labels, helpful placeholder text, vertical spacing, and strong output areas. Keep the form responsive and avoid spreading controls too far across the screen.'
-    },
-    {
-      title: 'Card-Based Reference Library',
-      category: 'Library',
-      bestFor: 'Prompt libraries, resource hubs, inspiration collections, and reusable examples',
-      example: 'Searchable cards with category chips, best-use notes, examples, precise prompts, and copy buttons.',
-      prompt: 'Create a card-based reference library with searchable cards, category filters, examples, copy-ready prompts, and copy buttons. Keep cards evenly spaced and easy to scan. Each card should show what the reference is, when to use it, an example, and a precise prompt to recreate it.'
-    },
-    {
-      title: 'Internal IT Tool UI',
-      category: 'Utility',
-      bestFor: 'Help desk tools, admin utilities, support dashboards, and internal workflows',
-      example: 'Status cards, safe action buttons, confirmation prompts, logs, progress states, and simple wording.',
-      prompt: 'Create an internal IT tool interface that is practical and low-clutter. Include clear status messages, safe action buttons, confirmation prompts for risky actions, progress indicators for long tasks, and simple wording for non-technical users.'
-    },
-    {
-      title: 'Prompt Generator Workspace',
-      category: 'Prompt Tool',
-      bestFor: 'Pages where users fill out fields to generate stronger prompts',
-      example: 'Dropdowns and text fields on top, generated prompt output below, with copy and clear buttons.',
-      prompt: 'Create a prompt generator workspace with guided fields, dropdowns, examples, generated output, copy buttons, and clear/reset controls. The layout should make it easy for someone to turn a rough idea into a complete precise prompt without needing to understand technical wording.'
-    }
+    { title: 'Minimal Dark UI', category: 'Core Styles', bestFor: 'Personal tools, dashboards, prompt hubs, and software utilities', example: 'Dark neutral background, compact cards, soft borders, clear typography, and minimal decoration.', prompt: 'Create a minimal dark UI for a software tool. Use a deep neutral background, compact rounded cards, subtle borders, muted secondary text, and one calm accent color. Prioritize readability, spacing, and practical controls over decorative effects.' },
+    { title: 'Light Professional Dashboard', category: 'Core Styles', bestFor: 'Business tools, admin panels, and client-facing apps', example: 'Soft gray background, white cards, subtle shadows, and clear section hierarchy.', prompt: 'Create a light professional dashboard UI with a soft gray background, white rounded cards, subtle shadows, clean typography, and clear spacing. Make it feel trustworthy, organized, and easy to scan. Avoid clutter and overlapping elements.' },
+    { title: 'Clean Apple Style', category: 'Core Styles', bestFor: 'Media apps, portfolios, and polished utilities', example: 'Generous spacing, soft surfaces, refined typography, and calm controls.', prompt: 'Create a clean Apple-inspired interface with generous spacing, refined typography, soft neutral surfaces, rounded panels, and polished controls. Keep the UI calm, premium, highly readable, and free from unnecessary clutter.' },
+    { title: 'Modern SaaS Dashboard', category: 'Core Styles', bestFor: 'Web apps, admin tools, and product dashboards', example: 'Sidebar navigation, top status cards, charts/tables, and clear actions.', prompt: 'Create a modern SaaS dashboard with a clean sidebar, compact top bar, status cards, charts or tables where useful, and clear primary actions. Use strong spacing, consistent components, and responsive behavior.' },
+    { title: 'Command Center UI', category: 'Core Styles', bestFor: 'Power-user tools and internal dashboards', example: 'Dense but readable layout with quick actions, search, status areas, and tool cards.', prompt: 'Create a command center UI for a power-user app. Use compact cards, quick-action sections, search/filter controls, status panels, and clear grouping. Make it feel efficient and powerful without becoming cluttered.' },
+
+    { title: 'Compact Link Hub', category: 'Layouts', bestFor: 'Homepages with many reference links', example: 'Small cards with emoji/icon, title, one-line description, and filter search.', prompt: 'Create a compact link hub layout with small clickable cards in a responsive grid. Each card should include a small icon or emoji, short title, and one-line description. Include filtering/search so many links remain easy to find.' },
+    { title: 'Bento Grid UI', category: 'Layouts', bestFor: 'Modern landing pages and feature overviews', example: 'Cards of different sizes arranged in a balanced grid.', prompt: 'Create a bento grid UI with cards of different sizes, rounded corners, strong hierarchy, and balanced spacing. Highlight the most important card first and make the layout responsive without awkward gaps.' },
+    { title: 'Sidebar App Layout', category: 'Layouts', bestFor: 'Desktop-style web apps and settings tools', example: 'Left sidebar, main content area, and optional right details panel.', prompt: 'Create a sidebar app layout with a fixed or collapsible left navigation, a main content area, and an optional details panel. Keep spacing consistent and make the layout adapt cleanly on smaller screens.' },
+    { title: 'Top Nav Dashboard', category: 'Layouts', bestFor: 'Simple dashboards and reference sites', example: 'Header navigation on top with content cards below.', prompt: 'Create a top-navigation dashboard layout with a compact header, clear page title, search/filter controls, and a responsive card grid. Keep it simple, fast, and easy to expand with more pages.' },
+    { title: 'Form Builder Layout', category: 'Layouts', bestFor: 'Prompt generators and input-heavy tools', example: 'Grouped fields on top with generated output below.', prompt: 'Create a form builder layout with grouped fields, clear labels, helpful placeholders, vertical spacing, and a large output area. Make all long sections scroll vertically and avoid cramped side-by-side controls.' },
+    { title: 'Split Preview Layout', category: 'Layouts', bestFor: 'Editors, generators, and design tools', example: 'Inputs on the left and live preview/output on the right.', prompt: 'Create a split preview layout with controls on the left and live output or preview on the right. On smaller screens, stack the panels vertically. Keep both panels scrollable and prevent content overflow.' },
+    { title: 'Table Admin Layout', category: 'Layouts', bestFor: 'IT tools, reports, records, and management apps', example: 'Toolbar, filters, table, row actions, and details drawer.', prompt: 'Create a table admin layout with a toolbar, search, filters, sortable columns, row actions, and a details drawer. Keep rows readable, actions clear, and long text truncated with tooltips or expandable details.' },
+
+    { title: 'Glassmorphism', category: 'Visual Effects', bestFor: 'Creative apps and modern landing sections', example: 'Frosted panels over a blurred background with subtle borders.', prompt: 'Create a glassmorphism UI with frosted translucent panels, soft background blur, subtle borders, and strong text contrast. Use the effect sparingly so readability and performance stay strong.' },
+    { title: 'Soft Gradient UI', category: 'Visual Effects', bestFor: 'Friendly apps, creative tools, and personal dashboards', example: 'Gentle gradients behind clean cards and buttons.', prompt: 'Create a soft gradient UI with gentle background gradients, clean cards, subtle shadows, and readable buttons. Keep the color palette controlled and professional, with enough contrast for accessibility.' },
+    { title: 'Neumorphism Lite', category: 'Visual Effects', bestFor: 'Small controls and experimental utility apps', example: 'Soft raised surfaces with subtle inner/outer shadows.', prompt: 'Create a light neumorphism-inspired UI using soft raised surfaces, subtle shadows, and rounded controls. Keep contrast high enough for readability and avoid using this style for dense data tables.' },
+    { title: 'Cyber Futuristic UI', category: 'Visual Effects', bestFor: 'Music, audio, game, or sci-fi tools', example: 'Dark panels, neon accents, grid lines, and technical-looking cards.', prompt: 'Create a cyber futuristic UI with dark panels, neon accent lines, subtle grid backgrounds, and sharp data-card hierarchy. Keep the design readable and avoid overusing glow effects.' },
+    { title: 'Editorial Minimal', category: 'Visual Effects', bestFor: 'Blogs, portfolios, and content-heavy pages', example: 'Large typography, simple layout, and strong whitespace.', prompt: 'Create an editorial minimal design with strong typography, generous spacing, simple navigation, and clean content sections. Avoid heavy cards unless needed and keep visual hierarchy clear.' },
+
+    { title: 'IT Support Tool', category: 'App Types', bestFor: 'Help desk utilities and internal workflows', example: 'Status panels, safe action buttons, logs, and confirmation prompts.', prompt: 'Create an IT support tool UI that is practical and low-clutter. Include status cards, safe action buttons, logs or activity history, confirmation prompts for risky actions, and simple wording for non-technical users.' },
+    { title: 'File Manager UI', category: 'App Types', bestFor: 'Folder scanners, media managers, and organizers', example: 'Folder picker, file grid/list, filters, progress bar, and details panel.', prompt: 'Create a file manager UI with a folder picker, search/filter controls, file grid or list view, details panel, progress indicator, and clear empty/error states. Design it for large folders without freezing.' },
+    { title: 'Media Gallery UI', category: 'App Types', bestFor: 'Image and video management apps', example: 'Thumbnail grid, preview pane, filters, metadata, and lazy loading.', prompt: 'Create a media gallery UI with a responsive thumbnail grid, preview pane, metadata panel, filters, and lazy loading. Include loading placeholders and make the interface stay responsive with many images or videos.' },
+    { title: 'Developer Tool UI', category: 'App Types', bestFor: 'Debuggers, generators, and technical utilities', example: 'Input panel, output panel, logs, settings, and copy/export actions.', prompt: 'Create a developer tool UI with clear input controls, a readable output area, logs, settings, copy/export actions, and friendly error states. Keep technical details available without overwhelming normal use.' },
+    { title: 'Creative Studio UI', category: 'App Types', bestFor: 'Music, image, video, or design tools', example: 'Workspace canvas, tool panels, timeline or preview, and organized controls.', prompt: 'Create a creative studio UI with a central workspace, organized tool panels, preview area, timeline or layers where appropriate, and smooth controls. Make it visually inspiring but stable and easy to understand.' },
+    { title: 'Prompt Library UI', category: 'App Types', bestFor: 'Reference libraries and generator websites', example: 'Searchable cards, category chips, examples, prompts, and copy buttons.', prompt: 'Create a prompt library UI with searchable cards, category filters, examples, precise prompts, and copy buttons. Keep the grid compact, organized, and easy to expand with new cards.' },
+    { title: 'Settings Heavy UI', category: 'App Types', bestFor: 'Customization panels and configuration tools', example: 'Grouped settings, vertical scroll, reset buttons, and help text.', prompt: 'Create a settings-heavy UI with grouped sections, vertical scrolling, clear labels, help text, reset buttons, and preview areas where useful. Avoid spreading too many controls horizontally or causing overflow.' },
+    { title: 'Mobile App Style', category: 'Responsive Styles', bestFor: 'Phone-first tools and app mockups', example: 'Bottom navigation, stacked cards, large tap targets, and compact text.', prompt: 'Create a mobile app style UI with bottom navigation, stacked cards, large tap targets, readable labels, and compact sections. Make it feel native and simple while scaling cleanly to larger screens.' },
+    { title: 'Responsive Desktop First', category: 'Responsive Styles', bestFor: 'Desktop apps and browser tools', example: 'Desktop layout with graceful stacking on smaller screens.', prompt: 'Create a desktop-first responsive interface. Use a strong desktop layout with grids or panels, then stack sections cleanly on tablets and phones. Prevent horizontal scrolling and keep all controls reachable.' }
   ],
+
   appCards: [
-    {
-      title: 'Local Desktop Utility',
-      category: 'Desktop App',
-      bestFor: 'Small Windows tools, file helpers, and internal workflows',
-      prompt: 'Create a complete local desktop utility using the best technology for the app idea. Prioritize fast startup, simple controls, clear status messages, friendly errors, and a README for non-developers. Do not force batch files unless they are the best fit or useful as optional launchers.'
-    },
-    {
-      title: 'Internal IT Dashboard',
-      category: 'IT Tool',
-      bestFor: 'Support teams, status tracking, and admin workflows',
-      prompt: 'Create an internal IT dashboard with a clean professional UI, quick actions, status cards, logs or activity history, safe confirmation prompts, and clear non-technical wording. Include loading indicators for network or file operations.'
-    },
-    {
-      title: 'File Scanner / Organizer',
-      category: 'File Tool',
-      bestFor: 'Apps that read large folders or organize many files',
-      prompt: 'Create a file scanner app that can handle large folders without freezing. Use background processing, pagination or lazy loading, progress bars, cancel controls, helpful error messages, and efficient memory usage.'
-    },
-    {
-      title: 'Creative Studio Interface',
-      category: 'Creative Tool',
-      bestFor: 'Music, image, video, and design apps',
-      prompt: 'Create a creative studio-style app with a polished workspace, organized side panels, preview area, tool controls, and smooth interactions. Keep the interface visually inspiring but still practical and easy to understand.'
-    },
-    {
-      title: 'Prompt Generator App',
-      category: 'Prompt Tool',
-      bestFor: 'Guided builders and reusable prompt systems',
-      prompt: 'Create a prompt generator app with guided fields, dropdowns, helpful examples, generated output, copy buttons, reset controls, and saved reference sections. Make the wording simple and the layout easy to follow.'
-    },
-    {
-      title: 'Responsive Web App',
-      category: 'Web App',
-      bestFor: 'Browser-based tools and dashboards',
-      prompt: 'Create a responsive web app with clean HTML, CSS, and JavaScript unless a framework is clearly better. Use accessible controls, mobile-friendly layout, clear loading states, and organized files that are easy to maintain.'
-    },
-    {
-      title: 'Settings-Heavy GUI',
-      category: 'GUI Tool',
-      bestFor: 'Customization panels and developer menus',
-      prompt: 'Create a settings-heavy GUI with grouped sections, clear labels, help text, reset options, search/filter support, and vertical scrolling. Avoid spreading controls across the screen or using technical wording that makes the app hard to use.'
-    },
-    {
-      title: 'Dashboard With Data Cards',
-      category: 'Dashboard',
-      bestFor: 'Reports, status pages, and command centers',
-      prompt: 'Create a dashboard with organized data cards, clear headings, filters, status indicators, and responsive spacing. Make the visual hierarchy obvious so users can quickly understand what needs attention.'
-    }
+    { title: 'Local Desktop Utility', category: 'Desktop App', bestFor: 'Small Windows tools, file helpers, and internal workflows', prompt: 'Create a complete local desktop utility using the best technology for the app idea. Prioritize fast startup, simple controls, clear status messages, friendly errors, and a README for non-developers. Do not force batch files unless they are the best fit or useful as optional launchers.' },
+    { title: 'Internal IT Dashboard', category: 'IT Tool', bestFor: 'Support teams, status tracking, and admin workflows', prompt: 'Create an internal IT dashboard with a clean professional UI, quick actions, status cards, logs or activity history, safe confirmation prompts, and clear non-technical wording. Include loading indicators for network or file operations.' },
+    { title: 'File Scanner / Organizer', category: 'File Tool', bestFor: 'Apps that read large folders or organize many files', prompt: 'Create a file scanner app that can handle large folders without freezing. Use background processing, pagination or lazy loading, progress bars, cancel controls, helpful error messages, and efficient memory usage.' },
+    { title: 'Creative Studio Interface', category: 'Creative Tool', bestFor: 'Music, image, video, and design apps', prompt: 'Create a creative studio-style app with a polished workspace, organized side panels, preview area, tool controls, and smooth interactions. Keep the interface visually inspiring but still practical and easy to understand.' },
+    { title: 'Prompt Generator App', category: 'Prompt Tool', bestFor: 'Guided builders and reusable prompt systems', prompt: 'Create a prompt generator app with guided fields, dropdowns, helpful examples, generated output, copy buttons, reset controls, and saved reference sections. Make the wording simple and the layout easy to follow.' },
+    { title: 'Responsive Web App', category: 'Web App', bestFor: 'Browser-based tools and dashboards', prompt: 'Create a responsive web app with clean HTML, CSS, and JavaScript unless a framework is clearly better. Use accessible controls, mobile-friendly layout, clear loading states, and organized files that are easy to maintain.' },
+    { title: 'Settings-Heavy GUI', category: 'GUI Tool', bestFor: 'Customization panels and developer menus', prompt: 'Create a settings-heavy GUI with grouped sections, clear labels, help text, reset options, search/filter support, and vertical scrolling. Avoid spreading controls across the screen or using technical wording that makes the app hard to use.' },
+    { title: 'Dashboard With Data Cards', category: 'Dashboard', bestFor: 'Reports, status pages, and command centers', prompt: 'Create a dashboard with organized data cards, clear headings, filters, status indicators, and responsive spacing. Make the visual hierarchy obvious so users can quickly understand what needs attention.' }
   ]
 };
