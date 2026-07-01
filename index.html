@@ -106,19 +106,62 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
     }
 
     .card {
       display: flex;
       flex-direction: column;
-      min-height: 182px;
+      min-height: 360px;
       padding: 18px;
       border: 1px solid var(--border);
       border-radius: 16px;
       background: var(--surface);
       box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .screenshot-link {
+      display: block;
+      margin: -18px -18px 16px;
+      background: var(--surface-soft);
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+    }
+
+    .screenshot-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+    }
+
+    .screenshot-wrap::before {
+      content: "Loading website preview...";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    .screenshot {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      background: var(--surface-soft);
+    }
+
+    .screenshot.is-hidden {
+      display: none;
     }
 
     .repo-name {
@@ -251,6 +294,20 @@
     const THEME_KEY = "prdr-hub-theme";
     const SORT_KEY = "prdr-hub-sort";
 
+    const DESCRIPTION_OVERRIDES = {
+      "nzre": "Responsive New Zealand real estate website project.",
+      "prdr-old-reference-library": "Older reference library for design and development resources.",
+      "prdr-hub": "GitHub Pages directory for browsing PRDR repositories and live website links.",
+      "az-partyrentals": "Arizona party rentals website concept and landing page.",
+      "phxwebspace": "Phoenix web services website concept and portfolio project.",
+      "az-paintball": "Arizona paintball business website concept and landing page.",
+      "az-nailtech": "Arizona nail technician website concept and landing page.",
+      "az-daycare": "Arizona daycare website concept and landing page.",
+      "az-handyman": "Arizona handyman services website concept and landing page.",
+      "az-plumbing": "Arizona plumbing services website concept and landing page.",
+      "az-marketing": "Arizona marketing services website concept and landing page."
+    };
+
     const FALLBACK_REPOS = [
       { name: "test", full_name: "pcdelros/test", description: "test", html_url: "https://github.com/pcdelros/test" },
       { name: "photogallery", full_name: "pcdelros/photogallery", description: "ASSIGNMENT // PHOTO GALLERY", html_url: "https://github.com/pcdelros/photogallery" },
@@ -260,14 +317,17 @@
       { name: "Accessible-Form-Page", full_name: "pcdelros/Accessible-Form-Page", description: "1.2 // Assignment: Accessible Form Page", html_url: "https://github.com/pcdelros/Accessible-Form-Page" },
       { name: "wunderlust", full_name: "pcdelros/wunderlust", description: "1.1 - 1.3 // Assignment", html_url: "https://github.com/pcdelros/wunderlust" },
       { name: "viewport", full_name: "pcdelros/viewport", description: "2.1 // Activity: Responsive CSS", html_url: "https://github.com/pcdelros/viewport" },
-      { name: "nzre", full_name: "pcdelros/nzre", description: "", html_url: "https://github.com/pcdelros/nzre" },
-      { name: "prdr-old-reference-library", full_name: "pcdelros/prdr-old-reference-library", description: "", html_url: "https://github.com/pcdelros/prdr-old-reference-library" },
-      { name: "prdr-hub", full_name: "pcdelros/prdr-hub", description: "", html_url: "https://github.com/pcdelros/prdr-hub" },
-      { name: "az-partyrentals", full_name: "pcdelros/az-partyrentals", description: "", html_url: "https://github.com/pcdelros/az-partyrentals" },
-      { name: "phxwebspace", full_name: "pcdelros/phxwebspace", description: "", html_url: "https://github.com/pcdelros/phxwebspace" },
-      { name: "az-paintball", full_name: "pcdelros/az-paintball", description: "", html_url: "https://github.com/pcdelros/az-paintball" },
-      { name: "az-nailtech", full_name: "pcdelros/az-nailtech", description: "", html_url: "https://github.com/pcdelros/az-nailtech" },
-      { name: "az-daycare", full_name: "pcdelros/az-daycare", description: "", html_url: "https://github.com/pcdelros/az-daycare" }
+      { name: "nzre", full_name: "pcdelros/nzre", description: DESCRIPTION_OVERRIDES.nzre, html_url: "https://github.com/pcdelros/nzre" },
+      { name: "prdr-old-reference-library", full_name: "pcdelros/prdr-old-reference-library", description: DESCRIPTION_OVERRIDES["prdr-old-reference-library"], html_url: "https://github.com/pcdelros/prdr-old-reference-library" },
+      { name: "prdr-hub", full_name: "pcdelros/prdr-hub", description: DESCRIPTION_OVERRIDES["prdr-hub"], html_url: "https://github.com/pcdelros/prdr-hub" },
+      { name: "az-partyrentals", full_name: "pcdelros/az-partyrentals", description: DESCRIPTION_OVERRIDES["az-partyrentals"], html_url: "https://github.com/pcdelros/az-partyrentals" },
+      { name: "phxwebspace", full_name: "pcdelros/phxwebspace", description: DESCRIPTION_OVERRIDES.phxwebspace, html_url: "https://github.com/pcdelros/phxwebspace" },
+      { name: "az-paintball", full_name: "pcdelros/az-paintball", description: DESCRIPTION_OVERRIDES["az-paintball"], html_url: "https://github.com/pcdelros/az-paintball" },
+      { name: "az-nailtech", full_name: "pcdelros/az-nailtech", description: DESCRIPTION_OVERRIDES["az-nailtech"], html_url: "https://github.com/pcdelros/az-nailtech" },
+      { name: "az-daycare", full_name: "pcdelros/az-daycare", description: DESCRIPTION_OVERRIDES["az-daycare"], html_url: "https://github.com/pcdelros/az-daycare" },
+      { name: "az-handyman", full_name: "pcdelros/az-handyman", description: DESCRIPTION_OVERRIDES["az-handyman"], html_url: "https://github.com/pcdelros/az-handyman" },
+      { name: "az-plumbing", full_name: "pcdelros/az-plumbing", description: DESCRIPTION_OVERRIDES["az-plumbing"], html_url: "https://github.com/pcdelros/az-plumbing" },
+      { name: "az-marketing", full_name: "pcdelros/az-marketing", description: DESCRIPTION_OVERRIDES["az-marketing"], html_url: "https://github.com/pcdelros/az-marketing" }
     ];
 
     const repoGrid = document.getElementById("repoGrid");
@@ -309,6 +369,21 @@
       }
 
       return `https://${OWNER}.github.io/${repo.name}/`;
+    }
+
+    function getRepoDescription(repo) {
+      const savedDescription = repo.description && repo.description.trim();
+
+      if (savedDescription) {
+        return savedDescription;
+      }
+
+      return DESCRIPTION_OVERRIDES[repo.name] || "Website project with source code and GitHub Pages link.";
+    }
+
+    function getScreenshotUrl(repo) {
+      const websiteUrl = getWebsiteUrl(repo);
+      return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(websiteUrl)}?w=900`;
     }
 
     function getDateTime(value) {
@@ -357,18 +432,46 @@
       const card = document.createElement("article");
       card.className = "card";
 
+      const websiteUrl = getWebsiteUrl(repo);
+
+      const screenshotLink = document.createElement("a");
+      screenshotLink.className = "screenshot-link";
+      screenshotLink.href = websiteUrl;
+      screenshotLink.target = "_blank";
+      screenshotLink.rel = "noopener noreferrer";
+      screenshotLink.setAttribute("aria-label", `Open live website for ${repo.name}`);
+
+      const screenshotWrap = document.createElement("div");
+      screenshotWrap.className = "screenshot-wrap";
+
+      const screenshot = document.createElement("img");
+      screenshot.className = "screenshot";
+      screenshot.src = getScreenshotUrl(repo);
+      screenshot.alt = `Live screenshot preview of ${repo.name}`;
+      screenshot.loading = "lazy";
+      screenshot.decoding = "async";
+      screenshot.referrerPolicy = "no-referrer";
+      screenshot.addEventListener("error", () => {
+        screenshot.classList.add("is-hidden");
+        screenshotWrap.setAttribute("aria-label", "Website preview is unavailable");
+      });
+
+      screenshotWrap.appendChild(screenshot);
+      screenshotLink.appendChild(screenshotWrap);
+
       const name = document.createElement("h2");
       name.className = "repo-name";
       name.textContent = repo.name;
 
       const description = document.createElement("p");
       description.className = "description";
-      description.textContent = repo.description || "No description added yet.";
+      description.textContent = getRepoDescription(repo);
 
       const meta = document.createElement("div");
       meta.className = "meta";
       meta.appendChild(createBadge(formatDate(repo.updated_at)));
 
+      if (!repo.description || !repo.description.trim()) meta.appendChild(createBadge("Description filled"));
       if (repo.archived) meta.appendChild(createBadge("Archived"));
       if (repo.fork) meta.appendChild(createBadge("Fork"));
 
@@ -377,7 +480,7 @@
 
       const website = document.createElement("a");
       website.className = "button primary";
-      website.href = getWebsiteUrl(repo);
+      website.href = websiteUrl;
       website.target = "_blank";
       website.rel = "noopener noreferrer";
       website.textContent = "Website";
@@ -390,7 +493,7 @@
       source.textContent = "Repo";
 
       actions.append(website, source);
-      card.append(name, description, meta, actions);
+      card.append(screenshotLink, name, description, meta, actions);
 
       return card;
     }
@@ -398,7 +501,7 @@
     function renderRepos() {
       const query = searchInput.value.trim().toLowerCase();
       const filtered = repos.filter((repo) => {
-        const searchableText = `${repo.name} ${repo.description || ""}`.toLowerCase();
+        const searchableText = `${repo.name} ${getRepoDescription(repo)}`.toLowerCase();
         return searchableText.includes(query);
       });
       const sorted = sortRepos(filtered);
